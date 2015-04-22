@@ -1,50 +1,42 @@
-/*!
- *
- *  Web Starter Kit
- *  Copyright 2014 Google Inc. All rights reserved.
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *    http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License
- *
- */
-(function () {
-  'use strict';
+var HealingHz = HealingHz || {};
 
-  var querySelector = document.querySelector.bind(document);
-
-  var navdrawerContainer = querySelector('.navdrawer-container');
-  var body = document.body;
-  var appbarElement = querySelector('.app-bar');
-  var menuBtn = querySelector('.menu');
-  var main = querySelector('main');
-
-  function closeMenu() {
-    body.classList.remove('open');
-    appbarElement.classList.remove('open');
-    navdrawerContainer.classList.remove('open');
-  }
-
-  function toggleMenu() {
-    body.classList.toggle('open');
-    appbarElement.classList.toggle('open');
-    navdrawerContainer.classList.toggle('open');
-    navdrawerContainer.classList.add('opened');
-  }
-
-  main.addEventListener('click', closeMenu);
-  menuBtn.addEventListener('click', toggleMenu);
-  navdrawerContainer.addEventListener('click', function (event) {
-    if (event.target.nodeName === 'A' || event.target.nodeName === 'LI') {
-      closeMenu();
+HealingHz.createNS = function (namespace) {
+    var nsparts = namespace.split(".");
+    var parent = HealingHz;
+ 
+    if (nsparts[0] === "HealingHz") {
+        nsparts = nsparts.slice(1);
     }
-  });
-})();
+ 
+    for (var i = 0; i < nsparts.length; i++) {
+        var partname = nsparts[i];
+
+        if (typeof parent[partname] === "undefined") {
+            parent[partname] = {};
+        }
+
+        parent = parent[partname];
+    }
+
+    return parent;
+};
+
+HealingHz.init = function() {
+    
+    var model = HealingHz.model;    
+    var canvas = document.getElementById('myCanvas');
+
+    var note1 = new model.NoteMarker(250, 100, 45, 'blue', '#000000');
+    note1.draw(canvas);
+    
+    var note2 = new model.NoteMarker(150, 100, 35, 'green', '#000000');
+    note2.draw(canvas);  
+    
+    var note3 = new model.NoteMarker(400, 100, 65, 'orange', '#000000');
+    note3.draw(canvas);
+};
+
+window.onload = function()
+{
+    HealingHz.init();
+};
