@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>HealingHz.model.NoteMarker</title>
+ 
+  <link rel="stylesheet" href="//code.jquery.com/qunit/qunit-1.18.0.css">
+ 
+  <script src="http://code.jquery.com/qunit/qunit-1.18.0.js"></script>
+  <script src="../dist/scripts/all.min.js"></script>
+ 
+  <canvas id="myCanvas" width="0" height="0"></canvas>
+     
+  <script>
+  
+  QUnit.test("HealingHz.model.NoteMarker", function( assert ) {
+    var testX = 250;
+    var testY = 125;
+    var testRad = 50;
+    var testBorderColor = '#FABCDE';
+    var testColor = 'Blue';
+    
+    var testNote = new HealingHz.model.NoteMarker(testX, testY, testRad, testColor, testBorderColor);
+    
+    assert.equal(testNote.x, testX, 'Checking NoteMarker.x equality');
+    assert.equal(testNote.y, testY, 'Checking NoteMarker.y equality');
+    assert.equal(testNote.rad, testRad, 'Checking NoteMarker.rad equality');
+    assert.equal(testNote.color, testColor, 'Checking NoteMarker.color equality');
+    assert.equal(testNote.borderColor, testBorderColor, 'Checking NoteMarker.borderColor equality');
+  });
+  </script>
+</head>
+<body>
+ 
+<div id="qunit"></div>
+ 
+</body>
+</html>
