@@ -45,6 +45,7 @@ gulp.task('copyfiles', function() {
 
 // Watch Files For Changes
 gulp.task('watch', function() {
+    gulp.watch('test/*.html', ['test']);
     gulp.watch('app/*.html', ['copyfiles']);
     gulp.watch('app/scripts/**/*.js', ['lint', 'scripts', 'test']);
     gulp.watch('scss/*.scss', ['sass']);
