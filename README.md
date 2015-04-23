@@ -1,4 +1,4 @@
-# [![HealingHz]
+# [![HealingHz]]
 
 ## Building HealingHz
 
