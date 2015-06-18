@@ -31,14 +31,20 @@ ns.NoteMarker.prototype.draw = function(stage) {
 
         for(i=0; i< markerBoxes.length; i++)
         {
-            var pt = evt.target.localToLocal(0, 0, markerBoxes[i].box);
-    
-            if(markerBoxes[i].box.hitTest(pt.x, pt.y)) {
-            
-                evt.target.x = markerBoxes[i].box.x + (markerBoxes[i].w/2);
-                evt.target.y = markerBoxes[i].box.y + (markerBoxes[i].h/2);
+            var markerBox = markerBoxes[i];
+            var pt = evt.target.localToLocal(0, 0, markerBox.box);
+
+            if(markerBox.box.hitTest(pt.x, pt.y)) {
+               
+               if(!markerBox.hasNoteMarker(markerBox.box)) {
+                    evt.target.x = markerBox.box.x + (markerBox.w/2);
+                    evt.target.y = markerBox.box.y + (markerBox.h/2);
+               }
+               else {
+                   evt.target.x = evt.target.x+35;
+                   evt.target.y = evt.target.y+35;
+               }
             }
-            
         }
         stage.update();
     })
@@ -46,4 +52,3 @@ ns.NoteMarker.prototype.draw = function(stage) {
     stage.addChild(c);
     stage.update();
 };
-

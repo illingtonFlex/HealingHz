@@ -45,7 +45,7 @@ HealingHz.init = function() {
         markerBoxes.push(new HealingHz.model.NoteMarkerBox(110*i, 50, 100, 100, "white", "black", notes));
         markerBoxes[i].draw(stage);
     }
-}
+};
 
 
 window.onload = function() {
