@@ -10,7 +10,7 @@ ns.NoteMarkerFactory.prototype.buildNoteMarkers = function(numOfMarkers) {
     
     for(i=0; i<numOfMarkers; i++)
     {
-        var nm = new HealingHz.model.NoteMarker(100+(i*40), 100, 40, "red", "black");
+        var nm = new HealingHz.model.NoteMarker(100+(i*100), 200, 40, "red", "black");
         noteMarkers.push(nm);
     }
     

@@ -23,25 +23,31 @@ HealingHz.createNS = function (namespace) {
 
 
 HealingHz.init = function() {
-    
-    var stage = new createjs.Stage("healingHzCanvas");
-
     var model = HealingHz.model;   
 
-    var factory = new model.NoteMarkerFactory();
+    var numMarkers = 3;
     
-    var notes = factory.buildNoteMarkers(5);
-
+    var stage = new createjs.Stage("healingHzCanvas");
     createjs.Touch.enable(stage);
     
+    var factory = new model.NoteMarkerFactory();
+    notes = factory.buildNoteMarkers(numMarkers);
+    markerBoxes = [];
+
     
     for(i=0; i<notes.length; i++)
     {
         notes[i].draw(stage);
     }
+    
+    for(i=0; i<numMarkers; i++)
+    {
+        markerBoxes.push(new HealingHz.model.NoteMarkerBox(110*i, 50, 100, 100, "white", "black", notes));
+        markerBoxes[i].draw(stage);
+    }
 }
 
-window.onload = function()
-{
+
+window.onload = function() {
     HealingHz.init();
 };
