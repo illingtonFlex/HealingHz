@@ -21,23 +21,25 @@ HealingHz.createNS = function (namespace) {
     return parent;
 };
 
+
 HealingHz.init = function() {
     
-    var model = HealingHz.model;    
-    var canvas = document.getElementById('myCanvas');
-//    var audio = getElementById('FIXME');
-    
-    var ctx = canvas.getContext('2d');
+    var stage = new createjs.Stage("healingHzCanvas");
 
-    var note1 = new model.NoteMarker(250, 100, 45, 'blue', '#000000');
-    note1.draw(ctx);
+    var model = HealingHz.model;   
+
+    var factory = new model.NoteMarkerFactory();
     
-    var note2 = new model.NoteMarker(150, 100, 35, 'green', '#000000');
-    note2.draw(ctx);  
+    var notes = factory.buildNoteMarkers(5);
+
+    createjs.Touch.enable(stage);
     
-    var note3 = new model.NoteMarker(400, 100, 65, 'orange', '#000000');
-    note3.draw(ctx);
-};
+    
+    for(i=0; i<notes.length; i++)
+    {
+        notes[i].draw(stage);
+    }
+}
 
 window.onload = function()
 {

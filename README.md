@@ -9,14 +9,16 @@ exercises can improve the user's ability to recognize and distinguish pitch.
 
 ## Building HealingHz
 
-To build HealingHz, use the following command from the project root directory:
+To prepare your workspace to build HealingHz, use the following command from the 
+project root directory:
 
     $ npm install
     
 This will install all dependencies and tools required to build the project. 
 This command may take a few minutes. The dependency binaries will be stored in 
-a directory called "node_modules" in the project root. If this directory 
-becomes corrupted or deleted, it can be rebuilt by repeating the above command.
+a directory called "node_modules" in the project root. You may ignore this 
+directory. If becomes becomes corrupted or deleted, it can be rebuilt by 
+repeating the above command.
 
 Once the depencies and development tools have been installed, build the project
 using the following command:
@@ -29,7 +31,8 @@ altered, Gulp will execute tests, aggregate and minify the contents of the
 scripts directory, and copy the compiled and tested project into a directory 
 named "dist", also in the project root.
 
-The dist directory contains the app as it would exist on a production web server.
+The dist directory contains the app as it would exist on a production web 
+server, and may be used as a deployment source.
 
 ## Testing HealingHz
 

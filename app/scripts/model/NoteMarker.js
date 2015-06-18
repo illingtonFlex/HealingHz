@@ -1,21 +1,36 @@
 var ns = HealingHz.createNS("HealingHz.model");
 
 ns.NoteMarker = function(x, y, rad, color, borderColor) {
-    
-    this.x = x;
-    this.y = y;
+
+    this.circle = new createjs.Shape();
+    this.circle.x = x;
+    this.circle.y = y;
+
     this.rad = rad;
     this.color = color;
     this.borderColor = borderColor;
 };
 
-ns.NoteMarker.prototype.draw = function(ctx) {
+ns.NoteMarker.prototype.draw = function(stage) {
+    
+    var c = this.circle;
+    
+    c.graphics
+        .beginStroke(this.borderColor)
+        .beginFill(this.color)
+        .drawCircle(0, 0, this.rad);
 
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.rad, 0, 2 * Math.PI, false);
-    ctx.fillStyle = this.color;
-    ctx.fill();
-    ctx.lineWidth = 5;
-    ctx.strokeStyle = this.borderColor;
-    ctx.stroke();
+        
+    c.on("pressmove", 
+        function(evt) {
+            evt.target.x = evt.stageX;
+            evt.target.y = evt.stageY;
+            stage.update();
+        });
+        
+    c.on("pressup", function(evt) { console.log("up"); })
+
+    stage.addChild(c);
+    stage.update();
 };
+

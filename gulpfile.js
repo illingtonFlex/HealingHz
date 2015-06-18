@@ -12,13 +12,13 @@ var qunit = require('gulp-qunit');
 
 // QUnit testing module
 gulp.task('test', function() {
-   return gulp.src('./test/testNoteMarker.html')
+   return gulp.src('./test/**/*.html')
         .pipe(qunit());
 });
 
 // Lint Task
 gulp.task('lint', function() {
-    return gulp.src('app/scripts/*.js')
+    return gulp.src('app/scripts/**/*.js')
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });
