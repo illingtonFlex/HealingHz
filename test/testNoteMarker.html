@@ -26,11 +26,13 @@
     var testNote = new HealingHz.model.NoteMarker(testX, testY, testRad, testColor, testBorderColor);
 
     
-    assert.equal(testNote.x, testX, 'Checking NoteMarker.x equality');
-    assert.equal(testNote.y, testY, 'Checking NoteMarker.y equality');
-    assert.equal(testNote.rad, testRad, 'Checking NoteMarker.rad equality');
-    assert.equal(testNote.color, testColor, 'Checking NoteMarker.color equality');
-    assert.equal(testNote.borderColor, testBorderColor, 'Checking NoteMarker.borderColor equality');
+    assert.equal(testNote.circle.x, testX, 'Checking NoteMarker.x equality');
+    assert.equal(testNote.circle.y, testY, 'Checking NoteMarker.y equality');
+    assert.equal(testNote.circle.origx, testX, 'Checking NoteMarker saves original X value.');
+    assert.equal(testNote.circle.origy, testY, 'Checking NoteMarker saves original Y value.');
+    assert.equal(testNote.circle.rad, testRad, 'Checking NoteMarker.rad equality');
+    assert.equal(testNote.circle.color, testColor, 'Checking NoteMarker.color equality');
+    assert.equal(testNote.circle.borderColor, testBorderColor, 'Checking NoteMarker.borderColor equality');
 
   });
   </script>
