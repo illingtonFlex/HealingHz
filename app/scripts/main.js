@@ -25,8 +25,8 @@ HealingHz.createNS = function (namespace) {
 HealingHz.init = function() {
     var model = HealingHz.model;   
 
-    HealingHz.NUM_MARKERS = 3;
-    
+    HealingHz.NUM_MARKERS = (Math.floor(Math.random() * 3) + 1) + 2;
+
     var stage = new createjs.Stage("healingHzCanvas");
     createjs.Touch.enable(stage);
     
@@ -42,9 +42,11 @@ HealingHz.init = function() {
 
     for(i=0; i<HealingHz.NUM_MARKERS; i++)
     {
+        var xindex = (690+(10*i))/HealingHz.NUM_MARKERS + (110*i);
+        
         HealingHz.markerBoxes.push(
             new HealingHz.model.NoteMarkerBox(
-                110*i, 50, 100, 100, "white", "black", HealingHz.notes));
+                xindex, 50, "white", "black", HealingHz.notes));
         HealingHz.markerBoxes[i].draw(stage);
     }
 };

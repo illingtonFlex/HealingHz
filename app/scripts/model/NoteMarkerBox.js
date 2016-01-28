@@ -1,12 +1,12 @@
 var ns = HealingHz.createNS("HealingHz.model");
 
-ns.NoteMarkerBox = function(x, y, w, h, color, borderColor) {
+ns.NoteMarkerBox = function(x, y, color, borderColor) {
 
     this.box = new createjs.Shape();
     this.box.x = x;
     this.box.y = y;
-    this.w = w;
-    this.h = h;
+    this.w = 100;
+    this.h = 100;
     this.color = color;
     this.borderColor = borderColor;
 };

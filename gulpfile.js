@@ -39,13 +39,15 @@ gulp.task('scripts', function() {
 
 // Copy files to dist directory
 gulp.task('copyfiles', function() {
-    gulp.src('./app/*.html')
+    gulp.src(['./app/*.html', './app/*.css'])
     .pipe(gulp.dest('dist'));
 });
 
 // Watch Files For Changes
 gulp.task('watch', function() {
     gulp.watch('test/*.html', ['test']);
+    gulp.watch('app/*.html', ['copyfiles']);
+    gulp.watch('app/*.css', ['copyfiles']);
     gulp.watch('app/*.html', ['copyfiles']);
     gulp.watch('app/scripts/**/*.js', ['lint', 'scripts', 'test']);
     gulp.watch('scss/*.scss', ['sass']);
