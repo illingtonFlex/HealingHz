@@ -28,9 +28,9 @@ ns.NoteMarkerBox.prototype.hasNoteMarker = function() {
 
     var hits = 0;
     
-    for(i=0; i<HealingHz.notes.length; i++) {
+    for(i=0; i<HealingHz.noteMarkers.length; i++) {
 
-        var pt = HealingHz.notes[i].circle.localToLocal(0, 0, this.box);
+        var pt = HealingHz.noteMarkers[i].circle.localToLocal(0, 0, this.box);
 
         if(this.box.hitTest(pt.x, pt.y)) {
             hits++;

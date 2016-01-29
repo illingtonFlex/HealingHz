@@ -24,20 +24,24 @@ HealingHz.createNS = function (namespace) {
 
 HealingHz.init = function() {
     var model = HealingHz.model;   
+    var data = HealingHz.data;
 
-    HealingHz.NUM_MARKERS = (Math.floor(Math.random() * 3) + 1) + 2;
+    HealingHz.NUM_MARKERS = 3; //(Math.floor(Math.random() * 3) + 1) + 2;
 
     var stage = new createjs.Stage("healingHzCanvas");
     createjs.Touch.enable(stage);
     
+    var chordFactory = new data.ChordFactory();
+    var theChord = chordFactory.getChord();
+
     var factory = new model.NoteMarkerFactory();
-    HealingHz.notes = factory.buildNoteMarkers(HealingHz.NUM_MARKERS);
+    HealingHz.noteMarkers = factory.buildNoteMarkers(theChord);
     HealingHz.markerBoxes = [];
 
     
-    for(i=0; i<HealingHz.notes.length; i++)
+    for(i=0; i<HealingHz.noteMarkers.length; i++)
     {
-        HealingHz.notes[i].draw(stage);
+        HealingHz.noteMarkers[i].draw(stage);
     }
 
     for(i=0; i<HealingHz.NUM_MARKERS; i++)
@@ -46,7 +50,7 @@ HealingHz.init = function() {
         
         HealingHz.markerBoxes.push(
             new HealingHz.model.NoteMarkerBox(
-                xindex, 50, "white", "black", HealingHz.notes));
+                xindex, 50, "white", "black"));
         HealingHz.markerBoxes[i].draw(stage);
     }
 };

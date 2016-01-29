@@ -1,6 +1,6 @@
 var ns = HealingHz.createNS("HealingHz.model");
 
-ns.NoteMarker = function(x, y, rad, color, borderColor) {
+ns.NoteMarker = function(x, y, rad, color, borderColor, note) {
     this.circle = new createjs.Shape();
     this.circle.origx = x;
     this.circle.origy = y;
@@ -9,6 +9,7 @@ ns.NoteMarker = function(x, y, rad, color, borderColor) {
     this.circle.rad = rad;
     this.circle.color = color;
     this.circle.borderColor = borderColor;
+    this.note = note;
 };
 
 ns.NoteMarker.prototype.draw = function(stage) {
@@ -29,6 +30,7 @@ ns.NoteMarker.prototype.draw = function(stage) {
 
     c.on("pressup", function(evt) { 
         var hits = 0;
+        var fullBoxes = 0;
         
         for(i=0; i< HealingHz.markerBoxes.length; i++)
         {
@@ -48,6 +50,7 @@ ns.NoteMarker.prototype.draw = function(stage) {
                    evt.target.y = evt.target.origy;
                }
             }
+            
         }
         
         if(hits === 0) {
@@ -58,12 +61,12 @@ ns.NoteMarker.prototype.draw = function(stage) {
         stage.update();
         
         // Find the clicked NoteMarker
-        for(i=0; i< HealingHz.notes.length; i++)
+        for(i=0; i< HealingHz.noteMarkers.length; i++)
         {
-            var note = HealingHz.notes[i];
+            var n = HealingHz.noteMarkers[i];
             
-            if(note.circle == evt.target){
-                console.log(note.circle.x);
+            if(n.circle == evt.target){
+                console.log(n.note.name);
             }
         }
     });
