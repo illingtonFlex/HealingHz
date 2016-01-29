@@ -21,6 +21,18 @@ HealingHz.createNS = function (namespace) {
     return parent;
 };
 
+HealingHz.showVictoryText = function() {
+    console.log("VICORY!");
+    var modal = document.getElementById('victoryDiv');
+    modal.style.display = "block";
+};
+
+HealingHz.showFailureText = function() {
+    console.log("DEFEAT!!");
+    var modal = document.getElementById('failureDiv');
+    modal.style.display = "block";
+};
+
 HealingHz.checkNoteOrder = function() {
                 
     var ret = true;
@@ -43,10 +55,10 @@ HealingHz.checkNoteOrder = function() {
     }
     
     if(ret === true) {
-        console.log("ALL NOTES IN ORDER");
+        HealingHz.showVictoryText();
     }
     else {
-        console.log("NOTES OUT OF ORDER");
+        HealingHz.showFailureText();
     }
     
     return ret;
