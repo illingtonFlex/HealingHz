@@ -32,16 +32,16 @@ ns.NoteMarker.prototype.draw = function(stage) {
         var hits = 0;
         var fullBoxes = 0;
         
-        for(i=0; i< HealingHz.markerBoxes.length; i++)
+        for(boxi=0; boxi<HealingHz.markerBoxes.length; boxi++)
         {
-            var markerBox = HealingHz.markerBoxes[i];
+            var markerBox = HealingHz.markerBoxes[boxi];
             var pt = evt.target.localToLocal(0, 0, markerBox.box);
 
             if(markerBox.box.hitTest(pt.x, pt.y)) {
                
                hits++;
                
-               if(!markerBox.hasNoteMarker()) {
+               if(!markerBox.hasTooManyNoteMarkers()) {
                     evt.target.x = markerBox.box.x + (markerBox.w/2);
                     evt.target.y = markerBox.box.y + (markerBox.h/2);
                }
@@ -51,14 +51,21 @@ ns.NoteMarker.prototype.draw = function(stage) {
                }
             }
             
+            if(markerBox.isFull()) {
+                fullBoxes++;    
+            }
         }
         
         if(hits === 0) {
             evt.target.x = evt.target.origx;
             evt.target.y = evt.target.origy;
         }
-        
+
         stage.update();
+
+        if(fullBoxes == HealingHz.markerBoxes.length) {
+            HealingHz.checkNoteOrder();
+        }
         
         // Find the clicked NoteMarker
         for(i=0; i< HealingHz.noteMarkers.length; i++)
@@ -66,7 +73,7 @@ ns.NoteMarker.prototype.draw = function(stage) {
             var n = HealingHz.noteMarkers[i];
             
             if(n.circle == evt.target){
-                console.log(n.note.name);
+               console.log(n.note.index);
             }
         }
     });

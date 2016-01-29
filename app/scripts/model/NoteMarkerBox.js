@@ -24,10 +24,10 @@ ns.NoteMarkerBox.prototype.draw = function(stage) {
     stage.update();
 };
 
-ns.NoteMarkerBox.prototype.hasNoteMarker = function() {
+ns.NoteMarkerBox.prototype.hasTooManyNoteMarkers = function() {
 
     var hits = 0;
-    
+
     for(i=0; i<HealingHz.noteMarkers.length; i++) {
 
         var pt = HealingHz.noteMarkers[i].circle.localToLocal(0, 0, this.box);
@@ -36,5 +36,40 @@ ns.NoteMarkerBox.prototype.hasNoteMarker = function() {
             hits++;
         }
     }
+
     return hits > 1;
+};
+
+
+ns.NoteMarkerBox.prototype.isFull = function() {
+
+    var hits = 0;
+
+    for(i=0; i<HealingHz.noteMarkers.length; i++) {
+
+        var pt = HealingHz.noteMarkers[i].circle.localToLocal(0, 0, this.box);
+
+        if(this.box.hitTest(pt.x, pt.y)) {
+            hits++;
+        }
+    }
+
+    return hits > 0;
+};
+
+
+ns.NoteMarkerBox.prototype.getNote = function() {
+    
+    var ret;
+    
+    for(i=0; i<HealingHz.noteMarkers.length; i++) {
+
+        var pt = HealingHz.noteMarkers[i].circle.localToLocal(0, 0, this.box);
+
+        if(this.box.hitTest(pt.x, pt.y)) {
+            ret = HealingHz.noteMarkers[i].note;
+        }
+    }
+
+    return ret;
 };

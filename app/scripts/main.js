@@ -21,6 +21,37 @@ HealingHz.createNS = function (namespace) {
     return parent;
 };
 
+HealingHz.checkNoteOrder = function() {
+                
+    var ret = true;
+    var index = 0;
+
+    for(checki=0; checki<HealingHz.NUM_MARKERS; checki++) {
+    
+        if(!HealingHz.markerBoxes[checki].isFull()) {
+            return false;
+        } 
+        
+        var note = HealingHz.markerBoxes[checki].getNote();        
+        
+        if(index <= note.index) {
+            index = note.index;
+        }
+        else {
+            ret = false;
+        }
+    }
+    
+    if(ret === true) {
+        console.log("ALL NOTES IN ORDER");
+    }
+    else {
+        console.log("NOTES OUT OF ORDER");
+    }
+    
+    return ret;
+};
+
 
 HealingHz.init = function() {
     var model = HealingHz.model;   
@@ -54,7 +85,6 @@ HealingHz.init = function() {
         HealingHz.markerBoxes[i].draw(stage);
     }
 };
-
 
 window.onload = function() {
     HealingHz.init();
