@@ -9,6 +9,10 @@
    text-align:center;
 }
 
+#healingHzCanvas {
+    border: 3px solid #F2F2F2;
+}
+
 #healingHzHeader {
     text-align: center;
 	font-family: Antic;
