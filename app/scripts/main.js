@@ -21,14 +21,14 @@ HealingHz.createNS = function (namespace) {
     return parent;
 };
 
+
+
 HealingHz.showVictoryText = function() {
-    console.log("VICORY!");
     var modal = document.getElementById('victoryDiv');
     modal.style.display = "block";
 };
 
 HealingHz.showFailureText = function() {
-    console.log("DEFEAT!!");
     var modal = document.getElementById('failureDiv');
     modal.style.display = "block";
 };
@@ -64,6 +64,23 @@ HealingHz.checkNoteOrder = function() {
     return ret;
 };
 
+HealingHz.initAudio = function(chord) {
+    console.log("Initializing chord: " + chord.name); 
+    var notes = chord.getNotes();
+    
+    var audioPath = "audio/4/";
+    var sounds = [];
+    
+    for(var i = 0; i<notes.length; i++)
+    {
+        var pushNote = notes[i];
+        sounds.push({id:pushNote.name, src:pushNote.name+".ogg"});
+    }
+
+    createjs.Sound.alternateExtensions = ["mp3", "wav"];
+    createjs.Sound.registerSounds(sounds, audioPath);
+
+};
 
 HealingHz.init = function() {
     var model = HealingHz.model;   
@@ -76,6 +93,9 @@ HealingHz.init = function() {
     
     var chordFactory = new data.ChordFactory();
     var theChord = chordFactory.getChord();
+
+
+    HealingHz.initAudio(theChord);
 
     var factory = new model.NoteMarkerFactory();
     HealingHz.noteMarkers = factory.buildNoteMarkers(theChord);
