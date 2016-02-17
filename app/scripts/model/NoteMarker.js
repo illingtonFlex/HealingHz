@@ -15,6 +15,7 @@ ns.NoteMarker = function(x, y, rad, color, borderColor, note) {
 ns.NoteMarker.prototype.draw = function(stage) {
     
     var c = this.circle;
+    var thisNote = this.note;
 
     c.graphics
         .beginStroke(c.borderColor)
@@ -31,6 +32,8 @@ ns.NoteMarker.prototype.draw = function(stage) {
     c.on("pressup", function(evt) { 
         var hits = 0;
         var fullBoxes = 0;
+
+        createjs.Sound.play(thisNote.name);
         
         for(boxi=0; boxi<HealingHz.markerBoxes.length; boxi++)
         {
@@ -46,8 +49,12 @@ ns.NoteMarker.prototype.draw = function(stage) {
                     evt.target.y = markerBox.box.y + (markerBox.h/2);
                }
                else {
-                   evt.target.x = evt.target.origx;
-                   evt.target.y = evt.target.origy;
+                   createjs.Tween.get(c, { loop: false })
+                    .to({ alpha: 0 }, 50)
+                    .to({ alpha: 1 }, 50)
+                    .to({ alpha: 0 }, 50)
+                    .to({ alpha: 1 }, 50)
+                    .to({ x: evt.target.origx, y: evt.target.origy }, 1000, createjs.Ease.getPowInOut(4));
                }
             }
             
@@ -57,11 +64,16 @@ ns.NoteMarker.prototype.draw = function(stage) {
         }
         
         if(hits === 0) {
-            evt.target.x = evt.target.origx;
-            evt.target.y = evt.target.origy;
+           createjs.Tween.get(c, { loop: false })
+            .to({ x: evt.target.origx, y: evt.target.origy }, 1000, createjs.Ease.getPowInOut(4));
         }
 
-        stage.update();
+        createjs.Tween.get(c, { loop: false })
+            .to({ alpha: 0 }, 250)
+            .to({ alpha: 1 }, 500);
+            
+        createjs.Ticker.setFPS(60);
+        createjs.Ticker.addEventListener("tick", stage);
 
         if(fullBoxes == HealingHz.markerBoxes.length) {
             HealingHz.checkNoteOrder();
@@ -71,13 +83,8 @@ ns.NoteMarker.prototype.draw = function(stage) {
         for(i=0; i< HealingHz.noteMarkers.length; i++)
         {
             var n = HealingHz.noteMarkers[i];
-            
-            if(n.circle == evt.target){
-               console.log(n.note.index);
-            }
         }
     });
 
     stage.addChild(c);
-    stage.update();
 };
