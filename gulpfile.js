@@ -10,11 +10,11 @@ var rename = require('gulp-rename');
 var qunit = require('gulp-qunit');
 
 
-// QUnit testing module
-gulp.task('test', function() {
-   return gulp.src('./test/**/*.html')
-        .pipe(qunit());
-});
+// // QUnit testing module
+// gulp.task('test', function() {
+//   return gulp.src('./test/**/*.html')
+//         .pipe(qunit());
+// });
 
 // Lint Task
 gulp.task('lint', function() {
@@ -39,19 +39,20 @@ gulp.task('scripts', function() {
 
 // Copy files to dist directory
 gulp.task('copyfiles', function() {
-    gulp.src(['./app/*.html', './app/*.css'])
+    gulp.src(['./app/*.html', './app/*.css', './app/audio/*.ogg', './app/audio/*.mpg'])
     .pipe(gulp.dest('dist'));
 });
 
 // Watch Files For Changes
 gulp.task('watch', function() {
-    gulp.watch('test/*.html', ['test']);
+//    gulp.watch('test/*.html', ['test']);
     gulp.watch('app/*.html', ['copyfiles']);
     gulp.watch('app/*.css', ['copyfiles']);
     gulp.watch('app/*.html', ['copyfiles']);
-    gulp.watch('app/scripts/**/*.js', ['lint', 'scripts', 'test']);
+    gulp.watch('app/scripts/**/*.js', ['lint', 'scripts']);
     gulp.watch('scss/*.scss', ['sass']);
 });
 
 // Default Task
-gulp.task('default', ['lint', 'sass', 'scripts', 'watch', 'copyfiles', 'test']);
+//gulp.task('default', ['lint', 'sass', 'scripts', 'watch', 'copyfiles', 'test']);
+gulp.task('default', ['lint', 'sass', 'scripts', 'watch', 'copyfiles']);
