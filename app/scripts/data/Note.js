@@ -1,8 +1,6 @@
 var ns = HealingHz.createNS("HealingHz.data");
 
-ns.Note = function(name, index, startTime, stopTime) {
+ns.Note = function(name, index) {
     this.name = name;
     this.index = index;
-    this.startTime = startTime;
-    this.stopTime = stopTime;
 };
