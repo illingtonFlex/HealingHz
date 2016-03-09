@@ -68,7 +68,8 @@ HealingHz.initAudio = function(chord) {
     console.log("Initializing chord: " + chord.name); 
     var notes = chord.getNotes();
     
-    var audioPath = "audio/4/";
+    var audioPath = "audio/" + ((Math.floor(Math.random() * 4) + 1))  + "/";
+    console.log("audiopath: " + audioPath);
     var sounds = [];
     
     for(var i = 0; i<notes.length; i++)
@@ -86,14 +87,14 @@ HealingHz.init = function() {
     var model = HealingHz.model;   
     var data = HealingHz.data;
 
-    HealingHz.NUM_MARKERS = 3; //(Math.floor(Math.random() * 3) + 1) + 2;
+//    HealingHz.NUM_MARKERS = 3; //(Math.floor(Math.random() * 3) + 1) + 2;
 
     var stage = new createjs.Stage("healingHzCanvas");
     createjs.Touch.enable(stage);
     
     var chordFactory = new data.ChordFactory();
     var theChord = chordFactory.getChord();
-
+    HealingHz.NUM_MARKERS = theChord.getNotes().length;
 
     HealingHz.initAudio(theChord);
 
