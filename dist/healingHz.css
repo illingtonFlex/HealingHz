@@ -1,0 +1,75 @@
+#mainDiv {
+    margin-top: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+#canvasDiv {
+   width: 100%;
+   text-align:center;
+}
+
+#healingHzCanvas {
+    border: 3px solid #F2F2F2;
+}
+
+#healingHzHeader {
+    text-align: center;
+	font-family: Antic;
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+}
+
+#explanationDiv {
+    margin: auto;
+    width: 800px;
+}
+
+.healingHzText {
+    font-family: Antic;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+}
+
+.healingHzParagraph {
+    text-indent: 50px;
+}
+
+#healingHzCanvas {
+    display: inline;
+}
+
+.modalNotification {
+    margin-top: 75px;
+}
+.modalContent {
+    position: absolute;
+    text-align: center;
+    top: 100px;
+    left: 50%;
+    margin-left: -200px;
+    background-color: white;
+    border-radius: 25px;
+    border: 2px solid #000000;
+    width: 400px;
+    height: 200px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    overflow: auto; 
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
