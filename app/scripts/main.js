@@ -85,6 +85,21 @@ HealingHz.initAudio = function(chord) {
 
 HealingHz.reset = function() {
 
+    var modal = document.getElementById('failureDiv');
+    modal.style.display = "none";
+
+    for(mi=0; mi<HealingHz.noteMarkers.length; mi++)
+    {
+        var marker = HealingHz.noteMarkers[mi];
+        var c = marker.circle;
+
+        createjs.Tween.get(c, { loop: false })
+            .to({ alpha: 0 }, 50)
+            .to({ alpha: 1 }, 50)
+            .to({ alpha: 0 }, 50)
+            .to({ alpha: 1 }, 50)
+            .to({ x: c.origx, y: c.origy }, 1000, createjs.Ease.getPowInOut(4));
+    }
 
 };
 
