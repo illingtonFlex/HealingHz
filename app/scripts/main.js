@@ -83,6 +83,11 @@ HealingHz.initAudio = function(chord) {
 
 };
 
+HealingHz.reset = function() {
+
+
+};
+
 HealingHz.init = function() {
     var model = HealingHz.model;   
     var data = HealingHz.data;

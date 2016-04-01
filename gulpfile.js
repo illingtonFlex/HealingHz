@@ -33,6 +33,7 @@ gulp.task('sass', function() {
 // Concatenate & Minify JS
 gulp.task('scripts', function() {
     return gulp.src('app/scripts/**/*.js')
+        .pipe(uglify())
         .pipe(concat('all.min.js'))
         .pipe(gulp.dest('dist/scripts'));
 });
