@@ -24,13 +24,18 @@ HealingHz.createNS = function (namespace) {
 
 
 HealingHz.showVictoryText = function() {
-    var modal = document.getElementById('victoryDiv');
-    modal.style.display = "block";
+        console.log("FAIL");
+    $("#victoryDiv").modal("show");
+
+    // var modal = document.getElementById('victoryDiv');
+    // modal.style.display = "block";
 };
 
 HealingHz.showFailureText = function() {
-    var modal = document.getElementById('failureDiv');
-    modal.style.display = "block";
+    console.log("FAIL");
+    $("#failureDiv").modal("show");
+    // var modal = document.getElementById('failureDiv');
+    // modal.style.display = "block";
 };
 
 HealingHz.checkNoteOrder = function() {
@@ -85,8 +90,8 @@ HealingHz.initAudio = function(chord) {
 
 HealingHz.reset = function() {
 
-    var modal = document.getElementById('failureDiv');
-    modal.style.display = "none";
+    // var modal = document.getElementById('failureDiv');
+    // modal.style.display = "none";
 
     for(mi=0; mi<HealingHz.noteMarkers.length; mi++)
     {
