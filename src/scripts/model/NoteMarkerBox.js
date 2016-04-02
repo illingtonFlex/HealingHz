@@ -14,7 +14,7 @@ ns.NoteMarkerBox = function(x, y, color, borderColor) {
 ns.NoteMarkerBox.prototype.draw = function(stage) {
 
     var b = this.box;
-    
+
     b.graphics
         .beginStroke(this.borderColor)
         .beginFill(this.color)
