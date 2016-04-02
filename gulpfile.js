@@ -35,13 +35,13 @@ gulp.task('scripts', function() {
     return gulp.src('app/scripts/**/*.js')
         .pipe(uglify())
         .pipe(concat('all.min.js'))
-        .pipe(gulp.dest('dist/scripts'));
+        .pipe(gulp.dest('www/scripts'));
 });
 
-// Copy files to dist directory
+// Copy files to www directory
 gulp.task('copyfiles', function() {
     gulp.src(['./app/*.html', './app/*.css', './app/audio/*.ogg', './app/audio/*.mpg'])
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('www'));
 });
 
 // Watch Files For Changes
