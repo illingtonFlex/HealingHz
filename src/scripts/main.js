@@ -108,7 +108,16 @@ HealingHz.reset = function() {
 
 };
 
+HealingHz.playSilentSound = function() {
+    //Necessary to initialize web audio in iOS
+    createjs.WebAudioPlugin.playEmptySound();
+};
+
 HealingHz.init = function() {
+
+    var canvas = document.getElementById("healingHzCanvas");
+    canvas.addEventListener("touchstart", HealingHz.playSilentSound, false);
+
     var model = HealingHz.model;   
     var data = HealingHz.data;
 

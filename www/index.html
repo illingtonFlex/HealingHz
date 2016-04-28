@@ -26,13 +26,9 @@
                 </p>
             </div>
             <div id="canvasDiv">
-                <canvas id="healingHzCanvas" width="800" height="400" onTouchStart="playSilentSound();" onTouchEnd="playSilentSound();"> </canvas>
-                    <script>
-                        function playSilentSound () {
-                            //Necessary to initialize web audio in iOS
-                            createjs.WebAudioPlugin.playEmptySound();
-                        }
-                    </script>
+                <canvas id="healingHzCanvas" width="800" height="400">
+                    ERROR! HTML5 canvas not supported!
+                </canvas>
             </div>
             
             <div class="modal fade" id="victoryDiv" tabindex="-1" role="dialog" aria-hidden="true">
