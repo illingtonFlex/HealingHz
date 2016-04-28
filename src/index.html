@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
     <head>
+        <title>HealingHz.us - Bionic Ear Trainer</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name=”description” content=”An online training tool for rehabilitating pitch perception for cochlear implant recipients”>
         <link rel="stylesheet" href="healingHz.css">
         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Antic" />
         <link rel="stylesheet" href="./scripts/lib/bootstrap-3.3.6.min.css">
@@ -23,7 +26,7 @@
                 </p>
             </div>
             <div id="canvasDiv">
-                <canvas onTouchStart="playSilentSound();" onTouchEnd="playSilentSound();" id="healingHzCanvas" width="800" height="400"> </canvas>
+                <canvas id="healingHzCanvas" width="800" height="400" onTouchStart="playSilentSound();" onTouchEnd="playSilentSound();"> </canvas>
                     <script>
                         function playSilentSound () {
                             //Necessary to initialize web audio in iOS
@@ -32,11 +35,11 @@
                     </script>
             </div>
             
-            <div class="modal fade" id="victoryDiv" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+            <div class="modal fade" id="victoryDiv" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content modal-content-success">
                         <div class="modal-header successModalHeader">
-                            <h4 class="modal-title" id="myModalLabel">Very good!</h4>
+                            <h4 class="modal-title">Very good!</h4>
                         </div>
                         <div class="modal-body">
                             <p class="healingHzText">Congratulations, your notes are in the correct order! You can try this puzzle again, or move on to a new puzzle.</p>
@@ -49,11 +52,11 @@
                 </div>
             </div>
             
-            <div class="modal fade" id="failureDiv" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+            <div class="modal fade" id="failureDiv" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content modal-content-fail">
                         <div class="modal-header failModalHeader">
-                            <h4 class="modal-title" id="myModalLabel">I'm sorry, that is not correct.</h4>
+                            <h4 class="modal-title">I'm sorry, that is not correct.</h4>
                         </div>
                         <div class="modal-body">
                             <p class="healingHzText">Your notes are not in the correct order. You can try again, or move on to a new puzzle.</p>
