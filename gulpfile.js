@@ -18,7 +18,7 @@ var qunit = require('gulp-qunit');
 
 // Lint Task
 gulp.task('lint', function() {
-    return gulp.src('app/scripts/**/*.js')
+    return gulp.src('src/scripts/**/*.js')
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });
@@ -32,7 +32,7 @@ gulp.task('sass', function() {
 
 // Concatenate & Minify JS
 gulp.task('scripts', function() {
-    return gulp.src('app/scripts/**/*.js')
+    return gulp.src('src/scripts/**/*.js')
         .pipe(uglify())
         .pipe(concat('all.min.js'))
         .pipe(gulp.dest('www/scripts'));
@@ -40,17 +40,17 @@ gulp.task('scripts', function() {
 
 // Copy files to www directory
 gulp.task('copyfiles', function() {
-    gulp.src(['./app/*.html', './app/*.css', './app/audio/*.ogg', './app/audio/*.mpg'])
+    gulp.src(['./src/*.html', './src/*.css', './src/audio/*.ogg', './src/audio/*.mpg'])
     .pipe(gulp.dest('www'));
 });
 
 // Watch Files For Changes
 gulp.task('watch', function() {
 //    gulp.watch('test/*.html', ['test']);
-    gulp.watch('app/*.html', ['copyfiles']);
-    gulp.watch('app/*.css', ['copyfiles']);
-    gulp.watch('app/*.html', ['copyfiles']);
-    gulp.watch('app/scripts/**/*.js', ['lint', 'scripts']);
+    gulp.watch('src/*.html', ['copyfiles']);
+    gulp.watch('src/*.css', ['copyfiles']);
+    gulp.watch('src/*.html', ['copyfiles']);
+    gulp.watch('src/scripts/**/*.js', ['lint', 'scripts']);
     gulp.watch('scss/*.scss', ['sass']);
 });
 
