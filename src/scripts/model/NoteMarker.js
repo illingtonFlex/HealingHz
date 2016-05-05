@@ -24,9 +24,11 @@ ns.NoteMarker.prototype.draw = function(stage) {
 
     c.on("pressmove", 
         function(evt) {
-            evt.target.x = evt.stageX;
-            evt.target.y = evt.stageY;
-            stage.update();
+            if(!createjs.Tween.hasActiveTweens()) {
+                evt.target.x = evt.stageX;
+                evt.target.y = evt.stageY;
+                stage.update();
+            }
         });
 
     c.on("pressup", function(evt) { 
