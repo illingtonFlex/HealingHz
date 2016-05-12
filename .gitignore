@@ -2,4 +2,6 @@
 .idea/
 .tmp/
 node_modules/
-.sass-cache/
+mobile/platforms/*
+mobile/hooks/*
+mobile/plugins/*
