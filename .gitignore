@@ -5,3 +5,4 @@ node_modules/
 mobile/platforms/*
 mobile/hooks/*
 mobile/plugins/*
+.DS_Store

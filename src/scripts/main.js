@@ -21,21 +21,34 @@ HealingHz.createNS = function (namespace) {
     return parent;
 };
 
+HealingHz.postResults = function() {
+    $.ajax({
+        type: 'POST',
+        url: 'http://104.131.64.136:8080/submitSolution',
+        crossDomain: true,
+        data: '{"chordName": "K_SHARP","outcome": "fail"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(responseData, textStatus, jqXHR) {
+            alert('POST Succeeded: ' + textStatus);
+        },
+        error: function (responseData, textStatus, errorThrown) {
+            alert('POST failed: ' + errorThrown);
+        }
+    });
+};
 
 
 HealingHz.showVictoryText = function() {
-        console.log("FAIL");
+    HealingHz.postResults();
+    console.log("PASS");
     $("#victoryDiv").modal("show");
-
-    // var modal = document.getElementById('victoryDiv');
-    // modal.style.display = "block";
 };
 
 HealingHz.showFailureText = function() {
+    HealingHz.postResults();
     console.log("FAIL");
     $("#failureDiv").modal("show");
-    // var modal = document.getElementById('failureDiv');
-    // modal.style.display = "block";
 };
 
 HealingHz.checkNoteOrder = function() {
@@ -90,9 +103,6 @@ HealingHz.initAudio = function(chord) {
 
 HealingHz.reset = function() {
 
-    // var modal = document.getElementById('failureDiv');
-    // modal.style.display = "none";
-
     for(mi=0; mi<HealingHz.noteMarkers.length; mi++)
     {
         var marker = HealingHz.noteMarkers[mi];
@@ -120,8 +130,6 @@ HealingHz.init = function() {
 
     var model = HealingHz.model;   
     var data = HealingHz.data;
-
-//    HealingHz.NUM_MARKERS = 3; //(Math.floor(Math.random() * 3) + 1) + 2;
 
     var stage = new createjs.Stage("healingHzCanvas");
     createjs.Touch.enable(stage);
