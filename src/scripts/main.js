@@ -21,12 +21,28 @@ HealingHz.createNS = function (namespace) {
     return parent;
 };
 
-HealingHz.postResults = function() {
+HealingHz.postResults = function(correct) {
+
+    var solutionNotes = [];
+
+    for(si=0; si<HealingHz.NUM_MARKERS; si++)
+    {
+        solutionNotes.push(HealingHz.markerBoxes[si].getNote());
+    }
+
+    var jsonData =
+        '{' +
+        '"correctAnswer": "'+correct+'", ' +
+        '"chordPresented": '+JSON.stringify(HealingHz.theChord)+', ' +
+        '"solutionNotes": ' +JSON.stringify(solutionNotes) +
+        '}';
+
+    console.log(jsonData);
     $.ajax({
         type: 'POST',
         url: 'http://104.131.64.136:8080/submitSolution',
         crossDomain: true,
-        data: '{"chordName": "K_SHARP","outcome": "fail"}',
+        data: jsonData,
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function(responseData, textStatus, jqXHR) {
@@ -40,13 +56,11 @@ HealingHz.postResults = function() {
 
 
 HealingHz.showVictoryText = function() {
-    HealingHz.postResults();
     console.log("PASS");
     $("#victoryDiv").modal("show");
 };
 
 HealingHz.showFailureText = function() {
-    HealingHz.postResults();
     console.log("FAIL");
     $("#failureDiv").modal("show");
 };
@@ -63,7 +77,7 @@ HealingHz.checkNoteOrder = function() {
         } 
         
         var note = HealingHz.markerBoxes[checki].getNote();        
-        
+
         if(index <= note.index) {
             index = note.index;
         }
@@ -71,7 +85,9 @@ HealingHz.checkNoteOrder = function() {
             ret = false;
         }
     }
-    
+
+    HealingHz.postResults(ret);
+
     if(ret === true) {
         HealingHz.showVictoryText();
     }
@@ -135,13 +151,13 @@ HealingHz.init = function() {
     createjs.Touch.enable(stage);
     
     var chordFactory = new data.ChordFactory();
-    var theChord = chordFactory.getChord();
-    HealingHz.NUM_MARKERS = theChord.getNotes().length;
+    HealingHz.theChord = chordFactory.getChord();
+    HealingHz.NUM_MARKERS = HealingHz.theChord.getNotes().length;
 
-    HealingHz.initAudio(theChord);
+    HealingHz.initAudio(HealingHz.theChord);
 
     var factory = new model.NoteMarkerFactory();
-    HealingHz.noteMarkers = factory.buildNoteMarkers(theChord);
+    HealingHz.noteMarkers = factory.buildNoteMarkers(HealingHz.theChord);
     HealingHz.markerBoxes = [];
 
     
