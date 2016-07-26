@@ -32,24 +32,25 @@ HealingHz.postResults = function(correct) {
 
     var jsonData =
         '{' +
-        '"correctAnswer": "'+correct+'", ' +
-        '"chordPresented": '+JSON.stringify(HealingHz.theChord)+', ' +
-        '"solutionNotes": ' +JSON.stringify(solutionNotes) +
+        '"correctAnswer": "' + correct + '", ' +
+        '"chordName": "' + HealingHz.theChord.getName() + '", ' +
+        '"notesPresented": ' + JSON.stringify(HealingHz.theChord.getNotes()) + ', ' +
+        '"solutionNotes": ' + JSON.stringify(solutionNotes) +
         '}';
 
     console.log(jsonData);
     $.ajax({
         type: 'POST',
-        url: 'http://104.131.64.136:8080/submitSolution',
+        url: 'http://localhost:8080/submitSolution',
         crossDomain: true,
         data: jsonData,
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function(responseData, textStatus, jqXHR) {
-            alert('POST Succeeded: ' + textStatus);
+            console.log('POST Succeeded: ' + JSON.stringify(responseData));
         },
         error: function (responseData, textStatus, errorThrown) {
-            alert('POST failed: ' + errorThrown);
+            console.log('POST failed: ' + JSON.stringify(responseData));
         }
     });
 };
