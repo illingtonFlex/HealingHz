@@ -41,7 +41,7 @@ HealingHz.postResults = function(correct) {
     console.log(jsonData);
     $.ajax({
         type: 'POST',
-        url: 'http://localhost:8080/submitSolution',
+        url: 'http://104.131.64.136:8080/submitSolution',
         crossDomain: true,
         data: jsonData,
         contentType: "application/json; charset=utf-8",
