@@ -77,16 +77,16 @@
                                 <th>Difficulty</th>
                             </tr>
                             <tr ng-repeat="curriculum in curriculums">
-                                <td>{{curriculum.name}}</td>
-                                <td>&nbsp;</td>
-                                <td>{{curriculums.length}}</td>
+                                <td><label><input type="radio" value="{{curriculum.id}}" name="selectedCurriculum">&nbsp;{{curriculum.name}}</label></td>
+                                <td>{{curriculum.numTones}}</td>
+                                <td>{{curriculum.chords.length}}</td>
                                 <td>{{curriculum.difficulty}}</td>
                             </tr>
                         </table>
                         <hr>
                         <h4 class="modal-title genericModalHeader">Select a voice</h4>
 
-                        <table width="100%">
+                        <table width="100%" class="healingHzText">
                             <tr>
                                 <td align="center">
                                     <label>
@@ -122,7 +122,7 @@
                             </tr>
                         </table>
 
-                        <button type="button" class="btn btn-default healingHzText" data-dismiss="modal">Execute Selected Curriculum</button>
+                        <button type="button" class="btn btn-default healingHzText" data-dismiss="modal">Execute Selected Test Plan</button>
                     </div>
                 </div>
             </div>

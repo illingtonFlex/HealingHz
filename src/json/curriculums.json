@@ -1,6 +1,8 @@
 [
-	{ 
-		"name" : "Major Triads", 
+	{
+		"id" : "00001",
+		"name" : "Major Triads",
+        "numTones" : 3,
 		"difficulty" : "challenging",
 		"chords" : [
 			{
@@ -56,8 +58,10 @@
 			}
 		] 
 	},
-	{ 
-		"name" : "Minor Triads", 
+	{
+		"id" : "00001",
+		"name" : "Minor Triads",
+        "numTones" : 3,
 		"difficulty" : "more challenging",
 		"chords" : [
 			{
