@@ -7,12 +7,12 @@
         <link rel="stylesheet" href="healingHz.css">
         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Antic" />
         <link rel="stylesheet" href="./scripts/lib/bootstrap-3.3.6.min.css">
-        <script src="./scripts/lib/jquery-1.12.0.min.js"></script>
-        <script src="./scripts/lib/bootstrap-3.3.6.min.js"></script>
+        <script src="./scripts/lib/jquery-1.12.0.min.js" type="text/javascript"></script>
+        <script src="./scripts/lib/bootstrap-3.3.6.min.js" type="text/javascript"></script>
         <script src="./scripts/lib/easeljs-0.8.0.min.js" type="text/javascript"></script>
         <script src="./scripts/lib/soundjs-0.6.2.min.js" type="text/javascript"></script>
         <script src="./scripts/lib/tweenjs-0.6.2.min.js" type="text/javascript"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.js"></script>
+        <script src="./scripts/lib/angular.min.js"></script>
         <script>document.write("<base href=\"" + document.location + "\" />");</script>
         <script src="./scripts/all.min.js" type="text/javascript"></script>
         <script>
@@ -25,7 +25,6 @@
             ga('send', 'pageview');
         </script>
         <script>
-            console.log( "YO!" + window.location.search);
             var App = angular.module('HealingHz-CurriculumUI', []);
 
             App.controller('CurriculumCtrl', function($scope, $http) {
@@ -55,12 +54,6 @@
                             </a>
                             <ul class="dropdown-menu dropdown-brand">
                                 <li class="healingHzText"><a href="#" data-toggle="modal" data-target="#myModal">View Curriculums</a></li>
-                                <!-- li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">One more separated link</a></li -->
                             </ul>
                         </li>
                     </ul>
@@ -89,86 +82,6 @@
                                 <td>{{curriculums.length}}</td>
                                 <td>{{curriculum.difficulty}}</td>
                             </tr>
-                            <!-- tr>
-                                <td>
-                                <div class="radio">
-                                    <label><input type="radio" name="optradio">Major Triads</label>
-                                </div>
-                                </td>
-                                <td>3</td>
-                                <td>10</td>
-                                <td>Challenging</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="radio">
-                                        <label><input type="radio" name="optradio">Minor Triads</label>
-                                    </div>
-                                </td>
-                                <td>3</td>
-                                <td>10</td>
-                                <td>Challenging</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="radio">
-                                        <label><input type="radio" name="optradio">Mixed Triads</label>
-                                    </div>
-                                </td>
-                                <td>3</td>
-                                <td>10</td>
-                                <td>Challenging</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="radio">
-                                        <label><input type="radio" name="optradio">Major7 Chords</label>
-                                    </div>
-                                </td>
-                                <td>4</td>
-                                <td>10</td>
-                                <td>More Challenging</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="radio">
-                                        <label><input type="radio" name="optradio">Minor7 Chords</label>
-                                    </div>
-                                </td>
-                                <td>4</td>
-                                <td>10</td>
-                                <td>More Challenging</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="radio">
-                                        <label><input type="radio" name="optradio">Mixed 7 Chords</label>
-                                    </div>
-                                </td>
-                                <td>4</td>
-                                <td>10</td>
-                                <td>More Challenging</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="radio">
-                                        <label><input type="radio" name="optradio">Chromatic Scales</label>
-                                    </div>
-                                </td>
-                                <td>5</td>
-                                <td>10</td>
-                                <td>Most Challenging</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="radio">
-                                        <label><input type="radio" name="optradio">Mixed Chords</label>
-                                    </div>
-                                </td>
-                                <td>Mixed</td>
-                                <td>10</td>
-                                <td>Most Challenging</td>
-                            </tr -->
                         </table>
                         <hr>
                         <h4 class="modal-title genericModalHeader">Select a voice</h4>
