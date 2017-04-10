@@ -2,18 +2,18 @@ var ns = HealingHz.createNS("HealingHz.data");
 
 ns.ChordFactory = function() {
 
-    this.C4  = new HealingHz.data.Note("C",    0);
-    this.Db4 = new HealingHz.data.Note("CsharpDflat", 1);
-    this.D4  = new HealingHz.data.Note("D",    2);
-    this.Eb4 = new HealingHz.data.Note("DsharpEflat", 3);
-    this.E4  = new HealingHz.data.Note("E",    4);
-    this.F4  = new HealingHz.data.Note("F",    5);
-    this.Gb4 = new HealingHz.data.Note("FsharpGflat", 6);
-    this.G4  = new HealingHz.data.Note("G",    7);
-    this.Ab4 = new HealingHz.data.Note("GsharpAflat", 8);
-    this.A4  = new HealingHz.data.Note("A",    9);
-    this.Bb4 = new HealingHz.data.Note("AsharpBflat", 10);
-    this.B4  = new HealingHz.data.Note("B",    11);
+    this.C4  = new HealingHz.data.Note("C", "C", 0);
+    this.Db4 = new HealingHz.data.Note("CsharpDflat", "C#/Db", 1);
+    this.D4  = new HealingHz.data.Note("D", "D", 2);
+    this.Eb4 = new HealingHz.data.Note("DsharpEflat", "D#/Eb", 3);
+    this.E4  = new HealingHz.data.Note("E", "E", 4);
+    this.F4  = new HealingHz.data.Note("F", "F", 5);
+    this.Gb4 = new HealingHz.data.Note("FsharpGflat", "F#/Gb", 6);
+    this.G4  = new HealingHz.data.Note("G", "G", 7);
+    this.Ab4 = new HealingHz.data.Note("GsharpAflat", "G#/Ab", 8);
+    this.A4  = new HealingHz.data.Note("A", "A", 9);
+    this.Bb4 = new HealingHz.data.Note("AsharpBflat", "A#Bb", 10);
+    this.B4  = new HealingHz.data.Note("B", "B", 11);
 
     this.C_major   = new HealingHz.data.Chord("C major",     [ this.C4,  this.E4,   this.G4  ]);
     this.Db_major  = new HealingHz.data.Chord("C#/Db major", [ this.Db4, this.F4,   this.Ab4 ]);
@@ -82,6 +82,9 @@ ns.ChordFactory = function() {
                     this.C_minor, this.Db_minor, this.D_minor, this.Eb_minor, this.E_minor, this.F_minor, this.Gb_minor, this.G_minor, this.Ab_minor, this.A_minor, this.Bb_minor, this.B_minor,
                     this.C_minor7, this.Db_minor7, this.D_minor7, this.Eb_minor7, this.E_minor7, this.F_minor7, this.Gb_minor7, this.G_minor7, this.Ab_minor7, this.A_minor7, this.Bb_minor7, this.B_minor7,
                     this.C_chrom, this.Db_chrom, this.D_chrom, this.Eb_chrom, this.E_chrom, this.F_chrom, this.Gb_chrom, this.G_chrom];
+
+    var str = JSON.stringify(this.chords);
+    console.log(str);
 
 };
 

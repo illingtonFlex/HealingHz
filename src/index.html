@@ -53,7 +53,7 @@
                                 <img height="30px" width="30px" src="./img/hamburger.png">
                             </a>
                             <ul class="dropdown-menu dropdown-brand">
-                                <li class="healingHzText"><a href="#" data-toggle="modal" data-target="#myModal">View Curriculums</a></li>
+                                <li class="healingHzText"><a href="#" data-toggle="modal" data-target="#myModal">Execute a test plan</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -66,14 +66,14 @@
                 <div class="modal-content">
                     <div class="modal-header genericModalHeader">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Select a curriculum</h4>
+                        <h4 class="modal-title">Select a test plan</h4>
                     </div>
                     <div class="modal-body">
                         <table width="100%" class="healingHzText">
                             <tr>
-                                <th>Curriculum Name</th>
-                                <th># tones per chord</th>
-                                <th>Curriculum length</th>
+                                <th>Name</th>
+                                <th># tones</th>
+                                <th>length</th>
                                 <th>Difficulty</th>
                             </tr>
                             <tr ng-repeat="curriculum in curriculums">

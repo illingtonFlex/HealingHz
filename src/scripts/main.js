@@ -110,7 +110,7 @@ HealingHz.initAudio = function(chord) {
     for(var i = 0; i<notes.length; i++)
     {
         var pushNote = notes[i];
-        sounds.push({id:pushNote.name, src:pushNote.name+".ogg"});
+        sounds.push({id:pushNote.fileName, src:pushNote.fileName+".ogg"});
     }
 
     createjs.Sound.alternateExtensions = ["mp3", "wav"];
