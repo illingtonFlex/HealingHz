@@ -20,7 +20,7 @@
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 500;
-	line-height: 26.4px;
+	line-height: 26x;
 }
 
 #explanationDiv {
@@ -28,16 +28,35 @@
     width: 800px;
 }
 
+.upFivePixels{
+    top : -5px;
+}
+
 .h4 {
     font-family: Antic;
 }
 
 .failModalHeader {
+    font-family: Antic;
     background-color: #F5A9A9;
 }
 
 .successModalHeader {
+    font-family: Antic;
     background-color: #A9F5A9;
+}
+
+.genericModalHeader {
+    font-family: Antic;
+}
+
+.curriculumList {
+    list-style: none;
+}
+
+.navbar-nav>li>a {
+    padding-top: 10px;
+    padding-bottom: 15px;
 }
 
 .healingHzText {

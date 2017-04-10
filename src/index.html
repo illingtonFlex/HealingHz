@@ -23,10 +23,148 @@
             ga('send', 'pageview');
         </script>
     </head>
-    <body> 
+    <body>
     
         <audio id="HealingHzAudio" preload="auto"></audio>
-    
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <ul class="nav navbar-nav navbar-brand-dropdown">
+                        <li class="dropdown">
+                            <a href="#" class="navbar-brand dropdown-toggle upFivePixels" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <img height="30px" width="30px" src="./img/hamburger.png">
+                            </a>
+                            <ul class="dropdown-menu dropdown-brand">
+                                <li class="healingHzText"><a href="#" data-toggle="modal" data-target="#myModal">View Curriculums</a></li>
+                                <!-- li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">One more separated link</a></li -->
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-sm\\lg">
+                <div class="modal-content">
+                    <div class="modal-header genericModalHeader">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">HealingHz Curriculums</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p class="healingHzText">Select a curriculum and a voice, then click the Execute button below.</p>
+
+
+                        <table width="100%" class="healingHzText">
+                            <tr>
+                                <th>Curriculum Name</th>
+                                <th># tones per chord</th>
+                                <th>Curriculum length</th>
+                                <th>Difficulty</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                <div class="radio">
+                                    <label><input type="radio" name="optradio">Major Triads</label>
+                                </div>
+                                </td>
+                                <td>3</td>
+                                <td>10</td>
+                                <td>Challenging</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="radio">
+                                        <label><input type="radio" name="optradio">Minor Triads</label>
+                                    </div>
+                                </td>
+                                <td>3</td>
+                                <td>10</td>
+                                <td>Challenging</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="radio">
+                                        <label><input type="radio" name="optradio">Mixed Triads</label>
+                                    </div>
+                                </td>
+                                <td>3</td>
+                                <td>10</td>
+                                <td>Challenging</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="radio">
+                                        <label><input type="radio" name="optradio">Major7 Chords</label>
+                                    </div>
+                                </td>
+                                <td>4</td>
+                                <td>10</td>
+                                <td>More Challenging</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="radio">
+                                        <label><input type="radio" name="optradio">Minor7 Chords</label>
+                                    </div>
+                                </td>
+                                <td>4</td>
+                                <td>10</td>
+                                <td>More Challenging</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="radio">
+                                        <label><input type="radio" name="optradio">Mixed 7 Chords</label>
+                                    </div>
+                                </td>
+                                <td>4</td>
+                                <td>10</td>
+                                <td>More Challenging</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="radio">
+                                        <label><input type="radio" name="optradio">Chromatic Scales</label>
+                                    </div>
+                                </td>
+                                <td>5</td>
+                                <td>10</td>
+                                <td>Most Challenging</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="radio">
+                                        <label><input type="radio" name="optradio">Mixed Chords</label>
+                                    </div>
+                                </td>
+                                <td>Mixed</td>
+                                <td>10</td>
+                                <td>Most Challenging</td>
+                            </tr>
+
+
+                        </table>
+
+
+                        <button type="button" class="btn btn-default healingHzText" data-dismiss="modal">Execute Selected Curriculum</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
         <div id="mainDiv" >
             <p id="healingHzHeader">HealingHz</p>
             <div id="explanationDiv">
