@@ -1,0 +1,116 @@
+[
+	{ 
+		"name" : "Major Triads", 
+		"difficulty" : "challenging",
+		"chords" : [
+			{
+				"name" : "A Major",
+				"notes" : [
+					{ 
+						"name" : "A",
+						"index" : 0
+					},
+					{ 
+						"name" : "B",
+						"index" : 1
+					},
+					{ 
+						"name" : "C",
+						"index" : 2
+					}
+				]
+			},
+			{
+				"name" : "B Major",
+				"notes" : [
+					{ 
+						"name" : "B",
+						"index" : 0
+					},
+					{ 
+						"name" : "C",
+						"index" : 1
+					},
+					{ 
+						"name" : "D",
+						"index" : 2
+					}
+				]
+			},
+			{
+				"name" : "C Major",
+				"notes" : [
+					{ 
+						"name" : "C",
+						"index" : 0
+					},
+					{ 
+						"name" : "D",
+						"index" : 1
+					},
+					{ 
+						"name" : "E",
+						"index" : 2
+					}
+				]
+			}
+		] 
+	},
+	{ 
+		"name" : "Minor Triads", 
+		"difficulty" : "more challenging",
+		"chords" : [
+			{
+				"name" : "A Minor",
+				"notes" : [
+					{ 
+						"name" : "Ab",
+						"index" : 0
+					},
+					{ 
+						"name" : "Bb",
+						"index" : 1
+					},
+					{ 
+						"name" : "Cb",
+						"index" : 2
+					}
+				]
+			},
+			{
+				"name" : "B Minor",
+				"notes" : [
+					{ 
+						"name" : "Bb",
+						"index" : 0
+					},
+					{ 
+						"name" : "Cb",
+						"index" : 1
+					},
+					{ 
+						"name" : "Db",
+						"index" : 2
+					}
+				]
+			},
+			{
+				"name" : "C Minor",
+				"notes" : [
+					{ 
+						"name" : "Cb",
+						"index" : 0
+					},
+					{ 
+						"name" : "Db",
+						"index" : 1
+					},
+					{ 
+						"name" : "Eb",
+						"index" : 2
+					}
+				]
+			}
+		] 
+	}
+]

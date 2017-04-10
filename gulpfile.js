@@ -40,7 +40,7 @@ gulp.task('scripts', function() {
 
 // Copy files to www directory
 gulp.task('copyfiles', function() {
-    gulp.src(['./src/*.html', './src/*.css', './src/audio/*.ogg', './src/audio/*.mpg'])
+    gulp.src(['./src/*.html', './src/*.css', './src/audio/*.ogg', './src/audio/*.mpg', './src/json/*.json'])
     .pipe(gulp.dest('www'));
 });
 
@@ -49,7 +49,7 @@ gulp.task('watch', function() {
 //    gulp.watch('test/*.html', ['test']);
     gulp.watch('src/*.html', ['copyfiles']);
     gulp.watch('src/*.css', ['copyfiles']);
-    gulp.watch('src/*.html', ['copyfiles']);
+    gulp.watch('src/json/*.json', ['copyfiles']);
     gulp.watch('src/scripts/**/*.js', ['lint', 'scripts']);
     gulp.watch('scss/*.scss', ['sass']);
 });
