@@ -139,6 +139,10 @@ HealingHz.playSilentSound = function() {
     createjs.WebAudioPlugin.playEmptySound();
 };
 
+HealingHz.initStandalone = function() {
+
+}
+
 HealingHz.init = function() {
 
     var canvas = document.getElementById("healingHzCanvas");

@@ -32,10 +32,6 @@
     top : -5px;
 }
 
-.h4 {
-    font-family: Antic;
-}
-
 .failModalHeader {
     font-family: Antic;
     background-color: #F5A9A9;
@@ -48,10 +44,6 @@
 
 .genericModalHeader {
     font-family: Antic;
-}
-
-.curriculumList {
-    list-style: none;
 }
 
 .navbar-nav>li>a {
