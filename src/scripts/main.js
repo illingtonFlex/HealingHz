@@ -37,7 +37,6 @@ HealingHz.postResults = function(correct) {
         '"notesPresented": ' + JSON.stringify(HealingHz.theChord.getNotes()) + ', ' +
         '"solutionNotes": ' + JSON.stringify(solutionNotes) +
         '}';
-
     console.log(jsonData);
     $.ajax({
         type: 'POST',

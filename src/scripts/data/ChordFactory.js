@@ -82,10 +82,6 @@ ns.ChordFactory = function() {
                     this.C_minor, this.Db_minor, this.D_minor, this.Eb_minor, this.E_minor, this.F_minor, this.Gb_minor, this.G_minor, this.Ab_minor, this.A_minor, this.Bb_minor, this.B_minor,
                     this.C_minor7, this.Db_minor7, this.D_minor7, this.Eb_minor7, this.E_minor7, this.F_minor7, this.Gb_minor7, this.G_minor7, this.Ab_minor7, this.A_minor7, this.Bb_minor7, this.B_minor7,
                     this.C_chrom, this.Db_chrom, this.D_chrom, this.Eb_chrom, this.E_chrom, this.F_chrom, this.Gb_chrom, this.G_chrom];
-
-    var str = JSON.stringify(this.chords);
-    console.log(str);
-
 };
 
 ns.ChordFactory.prototype.getChord = function() {
