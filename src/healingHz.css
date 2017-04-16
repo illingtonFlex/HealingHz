@@ -51,6 +51,11 @@
     padding-bottom: 15px;
 }
 
+.navbar-default {
+    background-color: #ffffff !important;
+    border-color: #ffffff !important;
+}
+
 .healingHzText {
     font-family: Antic;
 	font-size: 14px;
