@@ -115,6 +115,17 @@ HealingHz.initAudio = function(chord) {
     createjs.Sound.alternateExtensions = ["mp3", "wav"];
     createjs.Sound.registerSounds(sounds, audioPath);
 
+    createjs.Sound.registerSound("audio/1/C.ogg", "voice1");
+    createjs.Sound.registerSound("audio/2/C.ogg", "voice2");
+    createjs.Sound.registerSound("audio/3/C.ogg", "voice3");
+    createjs.Sound.registerSound("audio/4/C.ogg", "voice4");
+};
+
+HealingHz.playVoice = function(voice) {
+
+    var key="voice"+voice;
+
+    createjs.Sound.play(key);
 };
 
 HealingHz.reset = function() {
@@ -141,7 +152,7 @@ HealingHz.playSilentSound = function() {
 
 HealingHz.initStandalone = function() {
 
-}
+};
 
 HealingHz.init = function() {
 

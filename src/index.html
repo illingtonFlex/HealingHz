@@ -80,7 +80,7 @@
                         <h4 class="modal-title">Select a test plan</h4>
                     </div>
                     <div class="modal-body">
-                        <form name="selectCurriculum" class="simple-form" ng-submit="launchCurriculum(form)" ng-controller="CurriculumCtrl">
+                        <form name="selectCurriculum" ng-submit="launchCurriculum(form)" ng-controller="CurriculumCtrl">
                         <table width="100%" class="healingHzText">
                             <tr>
                                 <th>Name</th>
@@ -107,25 +107,25 @@
                                 <td align="center">
                                     <label>
                                         <input name="voiceRadioGroup" type="radio" ng-model="form.selectedVoice" value="1" required>
-                                        Voice 1 <img height="20px" width="20px" src="./img/play.png">
+                                        Voice 1 <img onclick="HealingHz.playVoice(1)" height="20px" width="20px" src="./img/play.png">
                                     </label>
                                 </td>
                                 <td align="center">
                                     <label>
                                         <input name="voiceRadioGroup" type="radio" ng-model="form.selectedVoice" value="2" required>
-                                        Voice 2 <img height="20px" width="20px" src="./img/play.png">
+                                        Voice 2 <img onclick="HealingHz.playVoice(2)" height="20px" width="20px" src="./img/play.png">
                                     </label>
                                 </td>
                                 <td align="center">
                                     <label>
                                         <input name="voiceRadioGroup" type="radio" ng-model="form.selectedVoice"  value="3" required>
-                                        Voice 3 <img height="20px" width="20px" src="./img/play.png">
+                                        Voice 3 <img onclick="HealingHz.playVoice(3)" height="20px" width="20px" src="./img/play.png">
                                     </label>
                                 </td>
                                 <td align="center">
                                     <label>
                                         <input name="voiceRadioGroup" type="radio" ng-model="form.selectedVoice"  value="4" required>
-                                        Voice 4 <img height="20px" width="20px" src="./img/play.png">
+                                        Voice 4 <img onclick="HealingHz.playVoice(4)" height="20px" width="20px" src="./img/play.png">
                                     </label>
                                 </td>
                                 <td align="center">
