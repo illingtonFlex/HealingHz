@@ -85,15 +85,16 @@ ns.ChordFactory = function() {
 };
 
 ns.ChordFactory.prototype.getChord = function(name) {
+    var ret;
 
     if(name === undefined) {
-        return this.chords[Math.floor(Math.random() * this.chords.length)];
+        ret = this.chords[Math.floor(Math.random() * this.chords.length)];
     }
 
     for(i=0; i< this.chords.length; i++){
-        if(name === this.chords[i]) {
-            return this.chords[i];
+        if(name === this.chords[i].name) {
+            ret = this.chords[i];
         }
     }
-    return undefined;
+    return ret;
 };

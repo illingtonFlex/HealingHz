@@ -55,13 +55,11 @@ HealingHz.postResults = function(correct) {
 };
 
 
-HealingHz.showVictoryText = function() {
-    console.log("PASS");
+HealingHz.handleCorrectAnswer = function() {
     $("#victoryDiv").modal("show");
 };
 
-HealingHz.showFailureText = function() {
-    console.log("FAIL");
+HealingHz.handleInorrectAnswer = function() {
     $("#failureDiv").modal("show");
 };
 
@@ -89,10 +87,10 @@ HealingHz.checkNoteOrder = function() {
     HealingHz.postResults(ret);
 
     if(ret === true) {
-        HealingHz.showVictoryText();
+        HealingHz.handleCorrectAnswer();
     }
     else {
-        HealingHz.showFailureText();
+        HealingHz.handleInorrectAnswer();
     }
     
     return ret;
@@ -149,28 +147,38 @@ HealingHz.playSilentSound = function() {
 };
 
 HealingHz.initStandalone = function() {
+    var chordFactory = new HealingHz.data.ChordFactory();
+    var aChord = chordFactory.getChord();
+
+    HealingHz.init(aChord);
 
 };
 
-HealingHz.init = function() {
+HealingHz.initTestPlan = function(curriculum, voice) {
+
+    console.log(curriculum);
+    console.log("Chosen voice: " + voice);
+
+    var chordFactory = new HealingHz.data.ChordFactory();
+    var aChord = chordFactory.getChord(curriculum.chords[0].name);
+    console.log(aChord);
+    HealingHz.init(aChord);
+};
+
+HealingHz.init = function(inChord) {
 
     HealingHz.curriculums = [];
-
-    $.getJSON("curriculums.json", function(json) {
-        HealingHz.curriculums = json;
-    });
 
     var canvas = document.getElementById("healingHzCanvas");
     canvas.addEventListener("touchstart", HealingHz.playSilentSound, false);
 
     var model = HealingHz.model;   
-    var data = HealingHz.data;
 
     var stage = new createjs.Stage("healingHzCanvas");
     createjs.Touch.enable(stage);
     
-    var chordFactory = new data.ChordFactory();
-    HealingHz.theChord = chordFactory.getChord();
+
+    HealingHz.theChord = inChord;
     HealingHz.NUM_MARKERS = HealingHz.theChord.getNotes().length;
 
     HealingHz.initAudio(HealingHz.theChord);
@@ -197,5 +205,27 @@ HealingHz.init = function() {
 };
 
 window.onload = function() {
-    HealingHz.init();
+
+    if (location.search) {
+        var params = {};
+        var parts = location.search.substring(1).split('&');
+
+        for (var i = 0; i < parts.length; i++) {
+            var nv = parts[i].split('=');
+            if (!nv[0]) continue;
+            params[nv[0]] = nv[1] || true;
+        }
+
+        $.getJSON("curriculums.json", function(json) {
+            for(var i=0; i<json.length; i++) {
+                if(json[i].id === params.c) {
+                    HealingHz.initTestPlan(json[i], params.v);
+                }
+            }
+        });
+    }
+    else
+    {
+        HealingHz.initStandalone();
+    }
 };
