@@ -123,9 +123,7 @@ HealingHz.initAudio = function(chord) {
 
 HealingHz.playVoice = function(voice) {
 
-    var key="voice"+voice;
-
-    createjs.Sound.play(key);
+    createjs.Sound.play("voice"+voice);
 };
 
 HealingHz.reset = function() {
@@ -155,6 +153,12 @@ HealingHz.initStandalone = function() {
 };
 
 HealingHz.init = function() {
+
+    HealingHz.curriculums = [];
+
+    $.getJSON("curriculums.json", function(json) {
+        HealingHz.curriculums = json;
+    });
 
     var canvas = document.getElementById("healingHzCanvas");
     canvas.addEventListener("touchstart", HealingHz.playSilentSound, false);

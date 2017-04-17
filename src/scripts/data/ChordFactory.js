@@ -84,6 +84,16 @@ ns.ChordFactory = function() {
                     this.C_chrom, this.Db_chrom, this.D_chrom, this.Eb_chrom, this.E_chrom, this.F_chrom, this.Gb_chrom, this.G_chrom];
 };
 
-ns.ChordFactory.prototype.getChord = function() {
-    return this.chords[Math.floor(Math.random() * this.chords.length)];
+ns.ChordFactory.prototype.getChord = function(name) {
+
+    if(name === undefined) {
+        return this.chords[Math.floor(Math.random() * this.chords.length)];
+    }
+
+    for(i=0; i< this.chords.length; i++){
+        if(name === this.chords[i]) {
+            return this.chords[i];
+        }
+    }
+    return undefined;
 };
