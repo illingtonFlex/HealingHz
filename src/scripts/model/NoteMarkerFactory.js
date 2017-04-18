@@ -28,7 +28,7 @@ ns.NoteMarkerFactory.prototype.buildNoteMarkers = function(chord) {
     {
         var color = this.generateColorCode();
 
-        var xindex = (690+(10*i))/HealingHz.NUM_MARKERS + (110*i) + 50;
+        var xindex = (690+(10*i))/chord.notes.length + (110*i) + 50;
         var nm = new HealingHz.model.NoteMarker(xindex, 200, 40, '#'+color.toString(16), "black", notes[i]);
         noteMarkers.push(nm);
     }

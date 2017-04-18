@@ -68,7 +68,7 @@ HealingHz.checkNoteOrder = function() {
     var ret = true;
     var index = 0;
 
-    for(checki=0; checki<HealingHz.NUM_MARKERS; checki++) {
+    for(checki=0; checki<HealingHz.markerBoxes.length; checki++) {
     
         if(!HealingHz.markerBoxes[checki].isFull()) {
             return false;
@@ -171,8 +171,6 @@ HealingHz.initTestPlan = function(curriculum, voice) {
 
 HealingHz.init = function(inChord, inVoice) {
 
-    HealingHz.curriculums = [];
-
     var canvas = document.getElementById("healingHzCanvas");
     canvas.addEventListener("touchstart", HealingHz.playSilentSound, false);
 
@@ -180,8 +178,6 @@ HealingHz.init = function(inChord, inVoice) {
 
     var stage = new createjs.Stage("healingHzCanvas");
     createjs.Touch.enable(stage);
-
-    HealingHz.NUM_MARKERS = inChord.getNotes().length;
 
     HealingHz.initAudio(inChord, inVoice);
 
@@ -195,9 +191,9 @@ HealingHz.init = function(inChord, inVoice) {
         HealingHz.noteMarkers[i].draw(stage);
     }
 
-    for(i=0; i<HealingHz.NUM_MARKERS; i++)
+    for(i=0; i<inChord.getNotes().length; i++)
     {
-        var xindex = (690+(10*i))/HealingHz.NUM_MARKERS + (110*i);
+        var xindex = (690+(10*i))/inChord.getNotes().length + (110*i);
         
         HealingHz.markerBoxes.push(
             new HealingHz.model.NoteMarkerBox(
