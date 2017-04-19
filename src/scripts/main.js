@@ -148,11 +148,9 @@ HealingHz.playSilentSound = function() {
 };
 
 HealingHz.initStandalone = function() {
-    var chordFactory = new HealingHz.data.ChordFactory();
-    var aChord = chordFactory.getChord();
+    var aChord = new HealingHz.data.ChordFactory().getChord();
     var rndVoice = ((Math.floor(Math.random() * 4) + 1));
     HealingHz.init(aChord, rndVoice);
-
 };
 
 HealingHz.initTestPlan = function(curriculum, voice) {
@@ -163,8 +161,7 @@ HealingHz.initTestPlan = function(curriculum, voice) {
 
     console.log(curriculum);
 
-    var chordFactory = new HealingHz.data.ChordFactory();
-    var aChord = chordFactory.getChord(curriculum.chords[0].name);
+    var aChord = new HealingHz.data.ChordFactory().getChord(curriculum.chords[0].name);
     console.log(aChord);
     HealingHz.init(aChord, voice);
 };
@@ -181,8 +178,7 @@ HealingHz.init = function(inChord, inVoice) {
 
     HealingHz.initAudio(inChord, inVoice);
 
-    var factory = new model.NoteMarkerFactory();
-    HealingHz.noteMarkers = factory.buildNoteMarkers(inChord);
+    HealingHz.noteMarkers = new model.NoteMarkerFactory().buildNoteMarkers(inChord);
     HealingHz.markerBoxes = [];
 
     
