@@ -21,6 +21,16 @@ HealingHz.createNS = function (namespace) {
     return parent;
 };
 
+HealingHz.stage = null;
+
+HealingHz.SETTINGS = {
+    "mode" : "standalone",
+    "testPlanIterator" : 0,
+    "currentTestPlan" : null,
+    "currentVoice" : 0
+};
+
+
 HealingHz.postResults = function(correct) {
 
     // var solutionNotes = [];
@@ -56,11 +66,36 @@ HealingHz.postResults = function(correct) {
 
 
 HealingHz.handleCorrectAnswer = function() {
-    $("#victoryDiv").modal("show");
+    if(HealingHz.SETTINGS.mode != "testplan") {
+        $("#victoryDiv").modal("show");
+    } else {
+        HealingHz.processSubmission();
+    }
 };
 
 HealingHz.handleInorrectAnswer = function() {
-    $("#failureDiv").modal("show");
+    if(HealingHz.SETTINGS.mode != "testplan") {
+        $("#failureDiv").modal("show");
+    } else {
+        HealingHz.processSubmission();
+    }
+};
+
+HealingHz.processSubmission = function() {
+
+    HealingHz.SETTINGS.testPlanIterator++;
+    var chord = new HealingHz.data.ChordFactory().getChord(
+        HealingHz.SETTINGS.currentTestPlan.chords[HealingHz.SETTINGS.testPlanIterator].name
+    );
+
+
+    for(var i=0; i<HealingHz.noteMarkers.length; i++) {
+        HealingHz.stage.removeChild(HealingHz.noteMarkers[i].circle);
+        HealingHz.stage.removeChild(HealingHz.markerBoxes[i].box);
+    }
+
+    console.log(chord);
+    HealingHz.init(chord, HealingHz.SETTINGS.currentVoice);
 };
 
 HealingHz.checkNoteOrder = function() {
@@ -155,15 +190,16 @@ HealingHz.initStandalone = function() {
 
 HealingHz.initTestPlan = function(curriculum, voice) {
 
+    console.log(curriculum);
     if(voice === "0") {
         voice = ((Math.floor(Math.random() * 4) + 1));
     }
 
-    console.log(curriculum);
-
-    var aChord = new HealingHz.data.ChordFactory().getChord(curriculum.chords[0].name);
-    console.log(aChord);
+    var aChord = new HealingHz.data.ChordFactory().getChord(curriculum.chords[HealingHz.SETTINGS.testPlanIterator].name);
     HealingHz.init(aChord, voice);
+    HealingHz.SETTINGS.mode = "testplan";
+    HealingHz.SETTINGS.currentTestPlan = curriculum;
+    HealingHz.SETTINGS.currentVoice = voice;
 };
 
 HealingHz.init = function(inChord, inVoice) {
@@ -173,8 +209,10 @@ HealingHz.init = function(inChord, inVoice) {
 
     var model = HealingHz.model;   
 
-    var stage = new createjs.Stage("healingHzCanvas");
-    createjs.Touch.enable(stage);
+    if(HealingHz.stage === null) {
+        HealingHz.stage = new createjs.Stage("healingHzCanvas");
+        createjs.Touch.enable(HealingHz.stage);
+    }
 
     HealingHz.initAudio(inChord, inVoice);
 
@@ -182,9 +220,9 @@ HealingHz.init = function(inChord, inVoice) {
     HealingHz.markerBoxes = [];
 
     
-    for(i=0; i<HealingHz.noteMarkers.length; i++)
+    for(var i=0; i<HealingHz.noteMarkers.length; i++)
     {
-        HealingHz.noteMarkers[i].draw(stage);
+        HealingHz.noteMarkers[i].draw(HealingHz.stage);
     }
 
     for(i=0; i<inChord.getNotes().length; i++)
@@ -194,7 +232,7 @@ HealingHz.init = function(inChord, inVoice) {
         HealingHz.markerBoxes.push(
             new HealingHz.model.NoteMarkerBox(
                 xindex, 50, "white", "black"));
-        HealingHz.markerBoxes[i].draw(stage);
+        HealingHz.markerBoxes[i].draw(HealingHz.stage);
     }
 };
 
@@ -213,6 +251,10 @@ window.onload = function() {
         $.getJSON("curriculums.json", function(json) {
             for(var i=0; i<json.length; i++) {
                 if(json[i].id === params.c) {
+
+                    HealingHz.SETTINGS.currentVoice = params.v;
+                    HealingHz.SETTINGS.currentTestPlan = json[i];
+
                     HealingHz.initTestPlan(json[i], params.v);
                 }
             }
