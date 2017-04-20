@@ -35,6 +35,8 @@ ns.NoteMarker.prototype.draw = function(stage) {
         var hits = 0;
         var fullBoxes = 0;
 
+        console.log(thisNote.fileName);
+
         createjs.Sound.play(thisNote.fileName);
 
         for(boxi=0; boxi<HealingHz.markerBoxes.length; boxi++)

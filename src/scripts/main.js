@@ -23,6 +23,12 @@ HealingHz.createNS = function (namespace) {
 
 HealingHz.stage = null;
 
+HealingHz.testPlanResults = {
+    "notesPresented" : [],
+    "notesSubmitted" : [],
+    "voice" : null
+};
+
 HealingHz.SETTINGS = {
     "mode" : "standalone",
     "testPlanIterator" : 0,
@@ -31,37 +37,8 @@ HealingHz.SETTINGS = {
 };
 
 
-HealingHz.postResults = function(correct) {
-
-    // var solutionNotes = [];
-    //
-    // for(si=0; si<HealingHz.NUM_MARKERS; si++)
-    // {
-    //     solutionNotes.push(HealingHz.markerBoxes[si].getNote());
-    // }
-    //
-    // var jsonData =
-    //     '{' +
-    //     '"correctAnswer": "' + correct + '", ' +
-    //     '"chordName": "' + HealingHz.theChord.getName() + '", ' +
-    //     '"notesPresented": ' + JSON.stringify(HealingHz.theChord.getNotes()) + ', ' +
-    //     '"solutionNotes": ' + JSON.stringify(solutionNotes) +
-    //     '}';
-    // console.log(jsonData);
-    // $.ajax({
-    //     type: 'POST',
-    //     url: 'http://104.131.64.136:8080/submitSolution',
-    //     crossDomain: true,
-    //     data: jsonData,
-    //     contentType: "application/json; charset=utf-8",
-    //     dataType: "json",
-    //     success: function(responseData, textStatus, jqXHR) {
-    //         console.log('POST Succeeded: ' + JSON.stringify(responseData));
-    //     },
-    //     error: function (responseData, textStatus, errorThrown) {
-    //         console.log('POST failed: ' + JSON.stringify(responseData));
-    //     }
-    // });
+HealingHz.postResults = function(results) {
+    console.log(results);
 };
 
 
@@ -83,33 +60,52 @@ HealingHz.handleInorrectAnswer = function() {
 
 HealingHz.processSubmission = function() {
 
+    var notesPresented = [];
+
+    for(var i=0; i< HealingHz.noteMarkers.length; i++) {
+        notesPresented.push(HealingHz.noteMarkers[i].note);
+    }
+
+    HealingHz.testPlanResults.notesPresented.push(notesPresented);
+    HealingHz.testPlanResults.voice = HealingHz.SETTINGS.currentVoice;
+
+    HealingHz.postResults(HealingHz.testPlanResults);
+
     HealingHz.SETTINGS.testPlanIterator++;
-    var chord = new HealingHz.data.ChordFactory().getChord(
-        HealingHz.SETTINGS.currentTestPlan.chords[HealingHz.SETTINGS.testPlanIterator].name
-    );
+    var chord =  HealingHz.getCurrentChord();
 
 
-    for(var i=0; i<HealingHz.noteMarkers.length; i++) {
+    for(i=0; i<HealingHz.noteMarkers.length; i++) {
         HealingHz.stage.removeChild(HealingHz.noteMarkers[i].circle);
         HealingHz.stage.removeChild(HealingHz.markerBoxes[i].box);
     }
 
-    console.log(chord);
     HealingHz.init(chord, HealingHz.SETTINGS.currentVoice);
+};
+
+HealingHz.getCurrentChord = function() {
+    var chord = new HealingHz.data.ChordFactory().getChord(
+        HealingHz.SETTINGS.currentTestPlan.chords[HealingHz.SETTINGS.testPlanIterator].name
+    );
+
+    return chord;
 };
 
 HealingHz.checkNoteOrder = function() {
                 
     var ret = true;
     var index = 0;
+    var notesSubmitted = [];
 
-    for(checki=0; checki<HealingHz.markerBoxes.length; checki++) {
+    for(var checki=0; checki<HealingHz.markerBoxes.length; checki++) {
     
         if(!HealingHz.markerBoxes[checki].isFull()) {
             return false;
         } 
-        
-        var note = HealingHz.markerBoxes[checki].getNote();        
+
+        var note = HealingHz.markerBoxes[checki].getNote();
+
+        notesSubmitted.push(note);
 
         if(index <= note.index) {
             index = note.index;
@@ -119,7 +115,7 @@ HealingHz.checkNoteOrder = function() {
         }
     }
 
-    HealingHz.postResults(ret);
+    HealingHz.testPlanResults.notesSubmitted.push(notesSubmitted);
 
     if(ret === true) {
         HealingHz.handleCorrectAnswer();
@@ -132,12 +128,10 @@ HealingHz.checkNoteOrder = function() {
 };
 
 HealingHz.initAudio = function(chord, voice) {
-    console.log("Initializing chord: " + chord.name);
     var notes = chord.getNotes();
     
     var audioPath = "audio/" + voice  + "/";
 
-    console.log("audiopath: " + audioPath);
     var sounds = [];
     
     for(var i = 0; i<notes.length; i++)
