@@ -29,6 +29,8 @@
 
             App.controller('CurriculumCtrl', function($scope, $window, $http) {
 
+                $scope.results = $window.HealingHz.testPlanResults;
+
                 $scope.form = {
                     selectedCurriculum : "",
                     selectedVoice : ""
@@ -187,6 +189,21 @@
                     </div>
                 </div>
             </div>
+            <div class="modal fade" id="resultsDiv" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content modal-content-fail">
+                        <div class="modal-header failModalHeader">
+                            <h4 class="modal-title">Your Test Plan Results:</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p class="healingHzText">{{results}}</p>
+                        </div>
+                        <div class="modal-footer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </body>
 </html>

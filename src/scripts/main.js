@@ -71,16 +71,27 @@ HealingHz.processSubmission = function() {
 
     HealingHz.postResults(HealingHz.testPlanResults);
 
-    HealingHz.SETTINGS.testPlanIterator++;
-    var chord =  HealingHz.getCurrentChord();
 
-
-    for(i=0; i<HealingHz.noteMarkers.length; i++) {
+    for (i = 0; i < HealingHz.noteMarkers.length; i++) {
         HealingHz.stage.removeChild(HealingHz.noteMarkers[i].circle);
         HealingHz.stage.removeChild(HealingHz.markerBoxes[i].box);
     }
 
-    HealingHz.init(chord, HealingHz.SETTINGS.currentVoice);
+    HealingHz.SETTINGS.testPlanIterator++;
+
+    if(HealingHz.SETTINGS.testPlanIterator < HealingHz.SETTINGS.currentTestPlan.chords.length) {
+        var chord = HealingHz.getCurrentChord();
+        HealingHz.init(chord, HealingHz.SETTINGS.currentVoice);
+    }
+    else
+    {
+        var appElement = document.querySelector('[ng-app="HealingHz-CurriculumUI"]');
+        var $scope = angular.element(appElement).scope();
+        $scope.$apply(function() {
+                $scope.results = HealingHz.testPlanResults;
+        });
+        $("#resultsDiv").modal("show");
+    }
 };
 
 HealingHz.getCurrentChord = function() {
