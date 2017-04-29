@@ -50,9 +50,8 @@
     </head>
     <body ng-controller="CurriculumCtrl">
         <audio id="HealingHzAudio" preload="auto"></audio>
-        <nav class="navbar navbar-default">
+        <nav id="navBar" class="navbar navbar-default">
             <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
@@ -66,15 +65,15 @@
                                 <img height="30px" width="30px" src="./img/hamburger.png">
                             </a>
                             <ul class="dropdown-menu dropdown-brand">
-                                <li class="healingHzText"><a href="#" data-toggle="modal" data-target="#myModal">Execute a test plan</a></li>
+                                <li class="healingHzText"><a href="#" data-toggle="modal" data-target="#testPlanModal">Execute a test plan</a></li>
+                                <li class="healingHzText"><a href="#" data-toggle="modal" data-target="#aboutModal">About HealingHz</a></li>
                             </ul>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <!-- Modal -->
-        <div class="modal fade" id="myModal" role="dialog" data-backdrop="static" data-keyboard="false">
+        <div class="modal fade" id="testPlanModal" role="dialog" data-backdrop="static" data-keyboard="false">
             <div class="modal-dialog modal-sm\\lg">
                 <div class="modal-content">
                     <div class="modal-header genericModalHeader">
@@ -152,6 +151,11 @@
                     Each of the below colored circles represents a note. The notes together represent a musical chord or scale. Click each circle to hear its corresponding note. Drag each circle into one of the boxes, arranging the notes in ascending order of pitch, with the lowest pitch on the left, and the highest pitch on the right.
                 </p>
             </div>
+            <div id="testPlanStatusDiv">
+                <p class="healingHzText healingHzParagraph">
+                    {{selectedCurriculum.name}} {{testPlanIterator+1}} of {{selectedCurriculum.chords.length}}
+                </p>
+            </div>
             <div id="canvasDiv">
                 <canvas id="healingHzCanvas" width="800" height="400">
                     ERROR! HTML5 canvas not supported!
@@ -205,7 +209,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </body>
 </html>

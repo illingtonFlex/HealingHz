@@ -71,7 +71,6 @@ HealingHz.processSubmission = function() {
 
     HealingHz.postResults(HealingHz.testPlanResults);
 
-
     for (i = 0; i < HealingHz.noteMarkers.length; i++) {
         HealingHz.stage.removeChild(HealingHz.noteMarkers[i].circle);
         HealingHz.stage.removeChild(HealingHz.markerBoxes[i].box);
@@ -79,14 +78,19 @@ HealingHz.processSubmission = function() {
 
     HealingHz.SETTINGS.testPlanIterator++;
 
+    var appElement = document.querySelector('[ng-app="HealingHz-CurriculumUI"]');
+    var $scope = angular.element(appElement).scope();
+
     if(HealingHz.SETTINGS.testPlanIterator < HealingHz.SETTINGS.currentTestPlan.chords.length) {
         var chord = HealingHz.getCurrentChord();
         HealingHz.init(chord, HealingHz.SETTINGS.currentVoice);
+
+        $scope.$apply(function() {
+            $scope.testPlanIterator = HealingHz.SETTINGS.testPlanIterator;
+        });
     }
     else
     {
-        var appElement = document.querySelector('[ng-app="HealingHz-CurriculumUI"]');
-        var $scope = angular.element(appElement).scope();
         $scope.$apply(function() {
                 $scope.results = HealingHz.testPlanResults;
         });
@@ -195,9 +199,20 @@ HealingHz.initStandalone = function() {
 
 HealingHz.initTestPlan = function(curriculum, voice) {
 
+    $( "#explanationDiv" ).hide();
+    $( "#testPlanStatusDiv" ).show();
+    $( "#navBar" ).hide();
+
     if(voice === "0") {
         voice = ((Math.floor(Math.random() * 4) + 1));
     }
+
+    var appElement = document.querySelector('[ng-app="HealingHz-CurriculumUI"]');
+    var $scope = angular.element(appElement).scope();
+    $scope.$apply(function() {
+        $scope.selectedCurriculum = curriculum;
+        $scope.testPlanIterator = HealingHz.SETTINGS.testPlanIterator;
+    });
 
     var aChord = new HealingHz.data.ChordFactory().getChord(curriculum.chords[HealingHz.SETTINGS.testPlanIterator].name);
     HealingHz.init(aChord, voice);

@@ -28,6 +28,11 @@
     width: 800px;
 }
 
+#testPlanStatusDiv {
+    margin: auto;
+    width: 800px;
+    display: none;
+}
 .upFivePixels{
     top : -5px;
 }
