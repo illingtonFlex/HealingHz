@@ -195,7 +195,6 @@ HealingHz.initStandalone = function() {
 
 HealingHz.initTestPlan = function(curriculum, voice) {
 
-    console.log(curriculum);
     if(voice === "0") {
         voice = ((Math.floor(Math.random() * 4) + 1));
     }

@@ -189,16 +189,18 @@
                     </div>
                 </div>
             </div>
-            <div class="modal fade" id="resultsDiv" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content modal-content-fail">
-                        <div class="modal-header failModalHeader">
+            <div class="modal modal-fullscreen fade" id="resultsDiv" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-results">
+                    <div class="modal-content modal-content-results">
+                        <div class="modal-header">
                             <h4 class="modal-title">Your Test Plan Results:</h4>
                         </div>
                         <div class="modal-body">
-                            <p class="healingHzText">{{results}}</p>
-                        </div>
-                        <div class="modal-footer">
+                            <div ng-repeat="resultChord in results.notesPresented">
+                                <div ng-repeat="note in resultChord">
+                                    {{note.displayName}}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

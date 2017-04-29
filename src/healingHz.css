@@ -81,6 +81,19 @@
     border: 2px solid #F5A9A9 !important;
 }
 
+.modal-dialog-results {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.modal-content-results {
+    height: auto !important;
+    min-height: 100% !important;
+    border-radius: 0 !important;
+}
+
 .modal-content  {
     -webkit-border-radius: 10px !important;
     -moz-border-radius: 10px !important;
