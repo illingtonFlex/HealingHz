@@ -31,6 +31,8 @@
 
             App.controller('CurriculumCtrl', function($scope, $window, $http) {
 
+                $scope.date = new Date();
+
                 $scope.results = $window.HealingHz.testPlanResults;
 
                 $scope.form = {
@@ -154,6 +156,22 @@
                 </div>
             </div>
         </nav>
+        <div class="modal fade healingHzText" id="aboutModal" role="dialog" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-sm\\lg">
+                <div class="modal-content">
+                    <div class="modal-header genericModalHeader">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">About HealingHz</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>HealingHz.us is an experimental tool intended to be used by cochlear implant recipients -- and
+                            the audiologists who treat them -- to improve pitch discrimination. These improvements come as
+                            a result of repetitively solving simple musical sound puzzles.</p>
+                        <p>Copyright &copy; {{date| date:'yyyy'}} HealingHz.us ALL RIGHTS RESERVED.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="modal fade" id="testPlanModal" role="dialog" data-backdrop="static" data-keyboard="false">
             <div class="modal-dialog modal-sm\\lg">
                 <div class="modal-content">
