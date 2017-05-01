@@ -313,7 +313,7 @@
                                         <th>Correct Order</th>
                                     </tr>
                                     <tr ng-repeat="resultChord in results.notesSubmitted">
-                                        <td>{{$index}}</td>
+                                        <td>{{$index+1}}</td>
                                         <td>{{ resultChord | submittedNotesForDisplay }}</td>
                                         <td>&nbsp;</td>
                                         <td>{{ resultChord | sortedNotesForDisplay }}</td>
