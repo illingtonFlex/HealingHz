@@ -13,6 +13,10 @@
     border: 3px solid #F2F2F2;
 }
 
+#resultsContainer {
+    margin: auto;
+}
+
 #healingHzHeader {
     text-align: center;
 	font-family: Antic;

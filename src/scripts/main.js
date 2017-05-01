@@ -144,6 +144,10 @@ HealingHz.checkNoteOrder = function() {
 
 HealingHz.initAudio = function(chord, voice) {
     var notes = chord.getNotes();
+
+    if(voice === "0") {
+        voice = ((Math.floor(Math.random() * 4) + 1));
+    }
     
     var audioPath = "audio/" + voice  + "/";
 
@@ -202,10 +206,6 @@ HealingHz.initTestPlan = function(curriculum, voice) {
     $( "#explanationDiv" ).hide();
     $( "#testPlanStatusDiv" ).show();
     $( "#navBar" ).hide();
-
-    if(voice === "0") {
-        voice = ((Math.floor(Math.random() * 4) + 1));
-    }
 
     var appElement = document.querySelector('[ng-app="HealingHz-CurriculumUI"]');
     var $scope = angular.element(appElement).scope();
