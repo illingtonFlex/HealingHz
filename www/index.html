@@ -50,6 +50,10 @@
                     $window.location.href = fwdUrl;
                 }
 
+                $scope.playSelectedVoiceSample = function() {
+                    $window.HealingHz.playVoice($scope.selectedVoice);
+                };
+
                 $scope.quitTestPlan = function() {
 
                     BootstrapDialog.configDefaultOptions({
@@ -293,6 +297,22 @@
                     </div>
                 </div>
             </div>
+            <div class="modal fade healingHzText" id="beginTestPlanModal" role="dialog" data-backdrop="static" data-keyboard="false">
+                <div class="modal-dialog modal-sm\\lg">
+                    <div class="modal-content">
+                        <div class="modal-header genericModalHeader">
+                            <h4 class="modal-title">Test Plan: {{selectedCurriculum.name}}</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>You are about to begin a test plan. Check your volume.</p>
+                            <img ng-click="playSelectedVoiceSample()" height="40px" width="40px" src="./img/play.png">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal" onClick="$('#beginTestPlanModal').modal('hide');">Begin</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="modal modal-fullscreen fade" id="resultsDiv" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
                 <div class="modal-dialog modal-dialog-results">
                     <div class="modal-content modal-content-results">
@@ -321,7 +341,6 @@
                                 </table>
                             </div>
                         </div>
-
                         <div class="modal-footer healingHzText">
                             <a href="/">Return to HealingHz</a>
                         </div>

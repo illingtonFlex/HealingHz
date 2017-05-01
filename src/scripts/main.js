@@ -170,6 +170,10 @@ HealingHz.initAudio = function(chord, voice) {
 
 HealingHz.playVoice = function(voice) {
 
+    if(voice === "0") {
+        voice = ((Math.floor(Math.random() * 4) + 1));
+    }
+
     createjs.Sound.play("voice"+voice);
 };
 
@@ -204,13 +208,13 @@ HealingHz.initStandalone = function() {
 HealingHz.initTestPlan = function(curriculum, voice) {
 
     $( "#explanationDiv" ).hide();
-    $( "#testPlanStatusDiv" ).show();
     $( "#navBar" ).hide();
 
     var appElement = document.querySelector('[ng-app="HealingHz-CurriculumUI"]');
     var $scope = angular.element(appElement).scope();
     $scope.$apply(function() {
         $scope.selectedCurriculum = curriculum;
+        $scope.selectedVoice = voice;
         $scope.testPlanIterator = HealingHz.SETTINGS.testPlanIterator;
     });
 
@@ -219,6 +223,9 @@ HealingHz.initTestPlan = function(curriculum, voice) {
     HealingHz.SETTINGS.mode = "testplan";
     HealingHz.SETTINGS.currentTestPlan = curriculum;
     HealingHz.SETTINGS.currentVoice = voice;
+
+    $( "#testPlanStatusDiv" ).show();
+    $("#beginTestPlanModal").modal("show");
 };
 
 HealingHz.init = function(inChord, inVoice) {
