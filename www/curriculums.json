@@ -2,7 +2,7 @@
 	{
 		"id" : "00001",
 		"name" : "Major Triads",
-        "numTones" : 3,
+		"numTones" : 3,
 		"difficulty" : "challenging",
 		"chords" : [
 			{
@@ -46,7 +46,7 @@
 	{
 		"id" : "00002",
 		"name" : "Minor Triads",
-        "numTones" : 3,
+		"numTones" : 3,
 		"difficulty" : "challenging",
 		"chords" : [
 			{
