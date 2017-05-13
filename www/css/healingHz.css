@@ -1,0 +1,117 @@
+* { font-family: Antic !important }
+
+#mainDiv {
+    margin-top: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+#canvasDiv {
+   width: 100%;
+   text-align:center;
+}
+
+#healingHzCanvas {
+    border: 3px solid #F2F2F2;
+}
+
+#resultsContainer {
+    margin: auto;
+}
+
+#healingHzHeader {
+    text-align: center;
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26x;
+}
+
+#explanationDiv {
+    margin: auto;
+    width: 800px;
+}
+
+#testPlanStatusDiv {
+    margin: auto;
+    width: 800px;
+    display: none;
+}
+.upFivePixels{
+    top : -5px;
+}
+
+.failModalHeader {
+    background-color: #F5A9A9;
+}
+
+.successModalHeader {
+    background-color: #A9F5A9;
+}
+
+.genericModalHeader {
+}
+
+.navbar-nav>li>a {
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+
+.navbar-default {
+    background-color: #ffffff !important;
+    border-color: #ffffff !important;
+}
+
+.healingHzText {
+    font-family: Antic;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+}
+
+.healingHzParagraph {
+    text-indent: 50px;
+}
+
+#healingHzCanvas {
+    display: inline;
+}
+
+.modal-content-success {
+    border: 2px solid #A9F5A9 !important;
+}
+
+.modal-content-fail {
+    border: 2px solid #F5A9A9 !important;
+}
+
+.modal-dialog-results {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.modal-content-results {
+    height: auto !important;
+    min-height: 100% !important;
+    border-radius: 0 !important;
+}
+
+.modal-content  {
+    -webkit-border-radius: 10px !important;
+    -moz-border-radius: 10px !important;
+    border-radius: 10px !important; 
+}
+
+.modal-header {
+    -webkit-border-top-left-radius: 5px !important;
+    -webkit-border-top-right-radius: 5px !important;
+    -moz-border-radius-topleft: 5px !important;
+    -moz-border-radius-topright: 5px !important;
+     border-top-left-radius: 5px !important;
+     border-top-right-radius: 5px !important;
+ }
