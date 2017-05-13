@@ -1,3 +1,5 @@
+* { font-family: Antic !important }
+
 #mainDiv {
     margin-top: 10px;
     width: 100%;
@@ -19,7 +21,6 @@
 
 #healingHzHeader {
     text-align: center;
-	font-family: Antic;
 	font-size: 24px;
 	font-style: normal;
 	font-variant: normal;
@@ -42,17 +43,14 @@
 }
 
 .failModalHeader {
-    font-family: Antic;
     background-color: #F5A9A9;
 }
 
 .successModalHeader {
-    font-family: Antic;
     background-color: #A9F5A9;
 }
 
 .genericModalHeader {
-    font-family: Antic;
 }
 
 .navbar-nav>li>a {

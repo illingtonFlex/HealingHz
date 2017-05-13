@@ -256,8 +256,8 @@
             </div>
             <div id="testPlanStatusDiv">
                 <p class="healingHzText healingHzParagraph">
-                    {{selectedCurriculum.name}} {{testPlanIterator+1}} of {{selectedCurriculum.chords.length}}
-                    <a href ng-click="quitTestPlan()">quit</a>
+                <h3>Test Plan: step {{testPlanIterator+1}} of {{selectedCurriculum.chords.length}}</h3>
+                <a href ng-click="quitTestPlan()">quit</a>
                 </p>
             </div>
             <div id="canvasDiv">
@@ -304,7 +304,9 @@
                             <h4 class="modal-title">Test Plan: {{selectedCurriculum.name}}</h4>
                         </div>
                         <div class="modal-body">
-                            <p>You are about to begin a test plan. Check your volume.</p>
+                            <p>You are about to begin a test plan. Once you complete the test plan, you will receive a score summary.
+                                You may click quit at any time to exit the test plan.</p>
+                            <p>Please click the below sound sample to ensure your listening device is working properly at a comfortable level.</p>
                             <img ng-click="playSelectedVoiceSample()" height="40px" width="40px" src="./img/play.png">
                         </div>
                         <div class="modal-footer">
