@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Antic';
+  font-weight: 400;
+  font-style: normal;
+  src: url('/fonts/Antic-regular/Antic-regular.eot');
+  src: url('/fonts/Antic-regular/Antic-regular.eot?#iefix') format('embedded-opentype'),
+       local('Antic'),
+       local('Antic-regular'),
+       url('/fonts/Antic-regular/Antic-regular.woff2') format('woff2'),
+       url('/fonts/Antic-regular/Antic-regular.woff') format('woff'),
+       url('/fonts/Antic-regular/Antic-regular.ttf') format('truetype'),
+       url('/fonts/Antic-regular/Antic-regular.svg#Antic') format('svg');
+}
+
