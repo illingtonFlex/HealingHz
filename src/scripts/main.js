@@ -278,6 +278,10 @@ window.onload = function() {
             for(var i=0; i<json.length; i++) {
                 if(json[i].id === params.c) {
 
+                    json[i].chords.sort(function() {
+                        return .5 - Math.random();
+                    });
+
                     HealingHz.SETTINGS.currentVoice = params.v;
                     HealingHz.SETTINGS.currentTestPlan = json[i];
 
