@@ -6,13 +6,40 @@
 		"difficulty" : "challenging",
 		"chords" : [
 			{
-				"name" : "A major"
+				"name" : "C#/Db major"
+			},
+			{
+				"name" : "D#/Eb major"
+			},
+			{
+				"name" : "C major"
+			},
+			{
+				"name" : "F major"
+			},
+			{
+				"name" : "D major"
+			},
+			{
+				"name" : "E major"
 			},
 			{
 				"name" : "B major"
 			},
 			{
-				"name" : "C major"
+				"name" : "F#/Gb major"
+			},
+			{
+				"name" : "A#/Bb major"
+			},
+			{
+				"name" : "G major"
+			},
+			{
+				"name" : "G#/Ab major"
+			},
+			{
+				"name" : "A major"
 			}
 		] 
 	},
@@ -20,17 +47,501 @@
 		"id" : "00002",
 		"name" : "Minor Triads",
         "numTones" : 3,
-		"difficulty" : "more challenging",
+		"difficulty" : "challenging",
 		"chords" : [
 			{
-				"name" : "A minor"
+				"name" : "C minor"
+			},
+			{
+				"name" : "G#/Ab minor"
+			},
+			{
+				"name" : "D minor"
+			},
+			{
+				"name" : "E minor"
+			},
+			{
+				"name" : "C#/Db minor"
+			},
+			{
+				"name" : "F minor"
+			},
+			{
+				"name" : "D#/Eb minor"
+			},
+			{
+				"name" : "F#/Gb minor"
+			},
+			{
+				"name" : "G minor"
 			},
 			{
 				"name" : "B minor"
 			},
 			{
-				"name" : "C minor"
+				"name" : "A minor"
+			},
+			{
+				"name" : "A#/Bb minor"
 			}
 		] 
+	},
+	{
+		"id" : "00003",
+		"name" : "Mixed Triads",
+		"numTones" : 3,
+		"difficulty" : "challenging",
+		"chords" : [
+			{
+				"name" : "C minor"
+			},
+			{
+				"name" : "G#/Ab minor"
+			},
+			{
+				"name" : "B major"
+			},
+			{
+				"name" : "F#/Gb major"
+			},
+			{
+				"name" : "D#/Eb major"
+			},
+			{
+				"name" : "D minor"
+			},
+			{
+				"name" : "E minor"
+			},
+			{
+				"name" : "A#/Bb major"
+			},
+			{
+				"name" : "G major"
+			},
+			{
+				"name" : "C#/Db minor"
+			},
+			{
+				"name" : "F minor"
+			},
+			{
+				"name" : "C#/Db major"
+			},
+			{
+				"name" : "C major"
+			},
+			{
+				"name" : "B minor"
+			},
+			{
+				"name" : "A minor"
+			},
+			{
+				"name" : "A#/Bb minor"
+			},
+			{
+				"name" : "F major"
+			},
+			{
+				"name" : "D major"
+			},
+			{
+				"name" : "E major"
+			},
+			{
+				"name" : "G#/Ab major"
+			},
+			{
+				"name" : "A major"
+			},
+			{
+				"name" : "D#/Eb minor"
+			},
+			{
+				"name" : "F#/Gb minor"
+			},
+			{
+				"name" : "G minor"
+			}
+		]
+	},
+	{
+		"id" : "00004",
+		"name" : "Major7 chords",
+		"numTones" : 4,
+		"difficulty" : "more challenging",
+		"chords" : [
+			{
+				"name" : "E major7"
+			},
+			{
+				"name" : "B major7"
+			},
+			{
+				"name" : "A major7"
+			},
+			{
+				"name" : "C major7"
+			},
+			{
+				"name" : "G major7"
+			},
+			{
+				"name" : "A#/Bb major7"
+			},
+			{
+				"name" : "F major7"
+			},
+			{
+				"name" : "D major7"
+			},
+			{
+				"name" : "G#/Ab major7"
+			},
+			{
+				"name" : "F#/Gb major7"
+			},
+			{
+				"name" : "D#/Eb major7"
+			},
+			{
+				"name" : "C#/Db major7"
+			}
+		]
+	},
+	{
+		"id" : "00005",
+		"name" : "Minor7 chords",
+		"numTones" : 4,
+		"difficulty" : "more challenging",
+		"chords" : [
+			{
+				"name" : "E minor7"
+			},
+			{
+				"name" : "B minor7"
+			},
+			{
+				"name" : "A minor7"
+			},
+			{
+				"name" : "C minor7"
+			},
+			{
+				"name" : "G minor7"
+			},
+			{
+				"name" : "A#/Bb minor7"
+			},
+			{
+				"name" : "F minor7"
+			},
+			{
+				"name" : "D minor7"
+			},
+			{
+				"name" : "G#/Ab minor7"
+			},
+			{
+				"name" : "F#/Gb minor7"
+			},
+			{
+				"name" : "D#/Eb minor7"
+			},
+			{
+				"name" : "C#/Db minor7"
+			}
+		]
+	},
+	{
+		"id" : "00006",
+		"name" : "Mixed 7th chords",
+		"numTones" : 4,
+		"difficulty" : "more challenging",
+		"chords" : [
+			{
+				"name" : "E minor7"
+			},
+			{
+				"name" : "D#/Eb major7"
+			},
+			{
+				"name" : "B minor7"
+			},
+			{
+				"name" : "C#/Db major7"
+			},
+			{
+				"name" : "B major7"
+			},
+			{
+				"name" : "C major7"
+			},
+			{
+				"name" : "D major7"
+			},
+			{
+				"name" : "G#/Ab major7"
+			},
+			{
+				"name" : "D minor7"
+			},
+			{
+				"name" : "F#/Gb major7"
+			},
+			{
+				"name" : "A minor7"
+			},
+			{
+				"name" : "D#/Eb minor7"
+			},
+			{
+				"name" : "C minor7"
+			},
+			{
+				"name" : "G major7"
+			},
+			{
+				"name" : "A#/Bb major7"
+			},
+			{
+				"name" : "G minor7"
+			},
+			{
+				"name" : "F#/Gb minor7"
+			},
+			{
+				"name" : "F major7"
+			},
+			{
+				"name" : "A major7"
+			},
+			{
+				"name" : "A#/Bb minor7"
+			},
+			{
+				"name" : "E major7"
+			},
+			{
+				"name" : "F minor7"
+			},
+			{
+				"name" : "G#/Ab minor7"
+			},
+			{
+				"name" : "C#/Db minor7"
+			}
+		]
+	},
+	{
+		"id" : "00007",
+		"name" : "Chromatic scale fragments",
+		"numTones" : 5,
+		"difficulty" : "most challenging",
+		"chords" : [
+			{
+				"name" : "C Chromatic scale"
+			},
+			{
+				"name" : "E Chromatic scale"
+			},
+			{
+				"name" : "D Chromatic scale"
+			},
+			{
+				"name" : "F#/Gb Chromatic scale"
+			},
+			{
+				"name" : "G Chromatic scale"
+			},
+			{
+				"name" : "C#/Db Chromatic scale"
+			},
+			{
+				"name" : "F Chromatic scale"
+			},
+			{
+				"name" : "D#/Eb Chromatic scale"
+			}
+		]
+	},
+
+	{
+		"id" : "00008",
+		"name" : "All chords",
+		"numTones" : "mixed",
+		"difficulty" : "most challenging",
+		"chords" : [
+			{
+				"name" : "C minor"
+			},
+			{
+				"name" : "G#/Ab minor"
+			},
+			{
+				"name" : "B major"
+			},
+			{
+				"name" : "F#/Gb major"
+			},
+			{
+				"name" : "D#/Eb major"
+			},
+			{
+				"name" : "D minor"
+			},
+			{
+				"name" : "E minor"
+			},
+			{
+				"name" : "A#/Bb major"
+			},
+			{
+				"name" : "G major"
+			},
+			{
+				"name" : "C#/Db minor"
+			},
+			{
+				"name" : "F minor"
+			},
+			{
+				"name" : "C#/Db major"
+			},
+			{
+				"name" : "C major"
+			},
+			{
+				"name" : "B minor"
+			},
+			{
+				"name" : "A minor"
+			},
+			{
+				"name" : "A#/Bb minor"
+			},
+			{
+				"name" : "F major"
+			},
+			{
+				"name" : "D major"
+			},
+			{
+				"name" : "E major"
+			},
+			{
+				"name" : "G#/Ab major"
+			},
+			{
+				"name" : "A major"
+			},
+			{
+				"name" : "D#/Eb minor"
+			},
+			{
+				"name" : "F#/Gb minor"
+			},
+			{
+				"name" : "G minor"
+			},
+			{
+				"name" : "E minor7"
+			},
+			{
+				"name" : "D#/Eb major7"
+			},
+			{
+				"name" : "B minor7"
+			},
+			{
+				"name" : "C#/Db major7"
+			},
+			{
+				"name" : "B major7"
+			},
+			{
+				"name" : "C major7"
+			},
+			{
+				"name" : "D major7"
+			},
+			{
+				"name" : "G#/Ab major7"
+			},
+			{
+				"name" : "D Chromatic scale"
+			},
+			{
+				"name" : "D minor7"
+			},
+			{
+				"name" : "F#/Gb major7"
+			},
+			{
+				"name" : "A minor7"
+			},
+			{
+				"name" : "D#/Eb minor7"
+			},
+			{
+				"name" : "C minor7"
+			},
+			{
+				"name" : "G major7"
+			},
+			{
+				"name" : "A#/Bb major7"
+			},
+			{
+				"name" : "G minor7"
+			},
+			{
+				"name" : "F#/Gb minor7"
+			},
+			{
+				"name" : "F major7"
+			},
+			{
+				"name" : "A major7"
+			},
+			{
+				"name" : "A#/Bb minor7"
+			},
+			{
+				"name" : "E major7"
+			},
+			{
+				"name" : "F minor7"
+			},
+			{
+				"name" : "G#/Ab minor7"
+			},
+			{
+				"name" : "C#/Db minor7"
+			},
+			{
+				"name" : "C Chromatic scale"
+			},
+			{
+				"name" : "E Chromatic scale"
+			},
+			{
+				"name" : "F#/Gb Chromatic scale"
+			},
+			{
+				"name" : "G Chromatic scale"
+			},
+			{
+				"name" : "C#/Db Chromatic scale"
+			},
+			{
+				"name" : "F Chromatic scale"
+			},
+			{
+				"name" : "D#/Eb Chromatic scale"
+			}
+		]
 	}
 ]
